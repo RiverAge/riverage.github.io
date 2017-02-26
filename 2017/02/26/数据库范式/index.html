@@ -5,43 +5,27 @@
   
   <title>数据库范式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="范式（NF）范式是符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。实际上可以理解为一张数据库表的表结构复合某种设计标准的级别。数据库的范式分为1FN，2NF，3NF，BCNF，4NF，5NF。一般在设计关系数据库的时候，最多考虑到BCNF就够。
-###第一范式
-####符合1NF的关系中每个属性不可再分表1所示的情况不符合1NF的要求。
+  <meta name="description" content="范式是符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。实际上可以理解为一张数据库表的表结构复合某种设计标准的级别。数据库的范式分为1FN，2NF，3NF，BCNF，4NF，5NF。一般在设计关系数据库的时候，最多考虑到BCNF就够。
+第一范式符合1NF的关系中每个属性不可再分表1所示的情况不符合1NF的要求。
 
-
-编号
-品名
-进货
-销售
-备">
+表11NF是所有关系型数据库的最基本要求也就是说，只要在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库范式">
 <meta property="og:url" content="http://yoursite.com/2017/02/26/数据库范式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="范式（NF）范式是符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。实际上可以理解为一张数据库表的表结构复合某种设计标准的级别。数据库的范式分为1FN，2NF，3NF，BCNF，4NF，5NF。一般在设计关系数据库的时候，最多考虑到BCNF就够。
-###第一范式
-####符合1NF的关系中每个属性不可再分表1所示的情况不符合1NF的要求。
+<meta property="og:description" content="范式是符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。实际上可以理解为一张数据库表的表结构复合某种设计标准的级别。数据库的范式分为1FN，2NF，3NF，BCNF，4NF，5NF。一般在设计关系数据库的时候，最多考虑到BCNF就够。
+第一范式符合1NF的关系中每个属性不可再分表1所示的情况不符合1NF的要求。
 
-
-编号
-品名
-进货
-销售
-备">
-<meta property="og:updated_time" content="2017-02-26T14:08:26.000Z">
+表11NF是所有关系型数据库的最基本要求也就是说，只要在">
+<meta property="og:image" content="http://yoursite.com/images/533D6870-C507-442B-A7B6-3F365769BBFF.png">
+<meta property="og:updated_time" content="2017-02-26T14:51:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库范式">
-<meta name="twitter:description" content="范式（NF）范式是符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。实际上可以理解为一张数据库表的表结构复合某种设计标准的级别。数据库的范式分为1FN，2NF，3NF，BCNF，4NF，5NF。一般在设计关系数据库的时候，最多考虑到BCNF就够。
-###第一范式
-####符合1NF的关系中每个属性不可再分表1所示的情况不符合1NF的要求。
+<meta name="twitter:description" content="范式是符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。实际上可以理解为一张数据库表的表结构复合某种设计标准的级别。数据库的范式分为1FN，2NF，3NF，BCNF，4NF，5NF。一般在设计关系数据库的时候，最多考虑到BCNF就够。
+第一范式符合1NF的关系中每个属性不可再分表1所示的情况不符合1NF的要求。
 
-
-编号
-品名
-进货
-销售
-备">
+表11NF是所有关系型数据库的最基本要求也就是说，只要在">
+<meta name="twitter:image" content="http://yoursite.com/images/533D6870-C507-442B-A7B6-3F365769BBFF.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -79,9 +63,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -112,111 +96,108 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="范式（NF）"><a href="#范式（NF）" class="headerlink" title="范式（NF）"></a>范式（NF）</h2><p>范式是符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。实际上可以理解为一张数据库表的表结构复合某种设计标准的级别。数据库的范式分为1FN，2NF，3NF，BCNF，4NF，5NF。一般在设计关系数据库的时候，最多考虑到BCNF就够。</p>
-<p>###第一范式</p>
-<p>####符合1NF的关系中每个属性不可再分<br>表1所示的情况不符合1NF的要求。</p>
-<p><table></table></p>
-<p><tr></tr></p>
-<p><td rowspan="2">编号</td></p>
-<p><td rowspan="2">品名</td></p>
-<p><td colspan="2">进货</td></p>
-<p><td colspan="2">销售</td></p>
-<p><td rowspan="2">备注</td><br></p>
-<p><tr></tr></p>
-<p><td>数量</td></p>
-<p><td>单价</td></p>
-<p><td>数量</td></p>
-<p><td>单价</td><br></p>
-<p><tr></tr></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td><br><br><br>表1<br>1NF是所有关系型数据库的最基本要求也就是说，只要在RDBMS中已经存在的数据表，一定是符合1NF的。如果我们要在RDBMS中表现表中的数据，就得设计为表2的形式。</p>
-<p><table></table></p>
-<p><tr></tr></p>
-<p><td>编号</td></p>
-<p><td>品名</td></p>
-<p><td>进货数量</td></p>
-<p><td>进货单价</td></p>
-<p><td>销售数量</td></p>
-<p><td>销售单价</td></p>
-<p><td>备注</td><br></p>
-<p><tr></tr></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td></p>
-<p><td></td><br><br><br>表2</p>
-<p>###第二范式</p>
-<p>####数据表里的所有数据都要和数据表的主键有完全依赖关系；如果有哪些数据只和和主键的一部分有关的话，它就不符合第二范式。同时可以得出：如果一个数据表的主键只有一个单一字段的话，他就一定符合第二范式（前提是该数据表符合第一范式）<br>仅仅符合1NF的设计回存在数据大量冗余的情况，如表3</p>
-<p><table></table></p>
-<p><tr></tr></p>
-<p><td>学号</td></p>
-<p><td>姓名</td></p>
-<p><td>系名</td></p>
-<p><td>系主任</td></p>
-<p><td>课名</td></p>
-<p><td>分数</td><br></p>
-<p><td>10222001</td></p>
-<p><td>李霞明</td></p>
-<p><td>经济系</td></p>
-<p><td>王强</td></p>
-<p><td>高等数学</td></p>
-<p><td>95</td></p>
-<p><tr></tr></p>
-<p><td>10222001</td></p>
-<p><td>李霞明</td></p>
-<p><td>经济系</td></p>
-<p><td>王强</td></p>
-<p><td>大学英语</td></p>
-<p><td>89</td><br></p>
-<p><tr></tr></p>
-<p><td>10222001</td></p>
-<p><td>李霞明</td></p>
-<p><td>经济系</td></p>
-<p><td>王强</td></p>
-<p><td>普通化学</td></p>
-<p><td>90</td><br></p>
-<p><tr></tr></p>
-<p><td>10222002</td></p>
-<p><td>张丽莉</td></p>
-<p><td>经济系</td></p>
-<p><td>王强</td></p>
-<p><td>高等数学</td></p>
-<p><td>81</td><br></p>
-<p><tr></tr></p>
-<p><td>10222002</td></p>
-<p><td>张丽莉</td></p>
-<p><td>经济系</td></p>
-<p><td>王强</td></p>
-<p><td>大学英语</td></p>
-<p><td>99</td><br></p>
-<p><tr></tr></p>
-<p><td>10222002</td></p>
-<p><td>张丽莉</td></p>
-<p><td>经济系</td></p>
-<p><td>王强</td></p>
-<p><td>计算机基础</td></p>
-<p><td>99</td><br></p>
-<p><tr></tr></p>
-<p><td>10222003</td></p>
-<p><td>高峰</td></p>
-<p><td>法律系</td></p>
-<p><td>刘雯</td></p>
-<p><td>高等数学</td></p>
-<p><td>78</td><br></p>
-<p><tr></tr></p>
-<p><td>10222003</td></p>
-<p><td>高峰</td></p>
-<p><td>法律系</td></p>
-<p><td>刘雯</td></p>
-<p><td>法学基础</td></p>
-<p><td>89</td><br><br><br>表3</p>
+        <p>范式是符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。实际上可以理解为一张数据库表的表结构复合某种设计标准的级别。数据库的范式分为1FN，2NF，3NF，BCNF，4NF，5NF。一般在设计关系数据库的时候，最多考虑到BCNF就够。</p>
+<h3 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h3><h4 id="符合1NF的关系中每个属性不可再分"><a href="#符合1NF的关系中每个属性不可再分" class="headerlink" title="符合1NF的关系中每个属性不可再分"></a>符合1NF的关系中每个属性不可再分</h4><p>表1所示的情况不符合1NF的要求。</p>
+<p><img src="/images/533D6870-C507-442B-A7B6-3F365769BBFF.png" alt=""></p>
+<p>表1<br>1NF是所有关系型数据库的最基本要求也就是说，只要在RDBMS中已经存在的数据表，一定是符合1NF的。如果我们要在RDBMS中表现表中的数据，就得设计为表2的形式。</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>品名</th>
+<th>进货数量</th>
+<th>进货单价</th>
+<th>销售数量</th>
+<th>销售单价</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>表2</p>
+<h3 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h3><h4 id="数据表里的所有数据都要和数据表的主键有完全依赖关系；如果有哪些数据只和和主键的一部分有关的话，它就不符合第二范式。同时可以得出：如果一个数据表的主键只有一个单一字段的话，他就一定符合第二范式（前提是该数据表符合第一范式）"><a href="#数据表里的所有数据都要和数据表的主键有完全依赖关系；如果有哪些数据只和和主键的一部分有关的话，它就不符合第二范式。同时可以得出：如果一个数据表的主键只有一个单一字段的话，他就一定符合第二范式（前提是该数据表符合第一范式）" class="headerlink" title="数据表里的所有数据都要和数据表的主键有完全依赖关系；如果有哪些数据只和和主键的一部分有关的话，它就不符合第二范式。同时可以得出：如果一个数据表的主键只有一个单一字段的话，他就一定符合第二范式（前提是该数据表符合第一范式）"></a>数据表里的所有数据都要和数据表的主键有完全依赖关系；如果有哪些数据只和和主键的一部分有关的话，它就不符合第二范式。同时可以得出：如果一个数据表的主键只有一个单一字段的话，他就一定符合第二范式（前提是该数据表符合第一范式）</h4><p>仅仅符合1NF的设计回存在数据大量冗余的情况，如表3</p>
+<table>
+<thead>
+<tr>
+<th>学号姓名</th>
+<th>系名</th>
+<th>系主任</th>
+<th>课名</th>
+<th>分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10222001</td>
+<td>李霞明</td>
+<td>经济系</td>
+<td>王强</td>
+<td>高等数学</td>
+<td>95</td>
+</tr>
+<tr>
+<td>10222001</td>
+<td>李霞明</td>
+<td>经济系</td>
+<td>王强</td>
+<td>大学英语</td>
+<td>89</td>
+</tr>
+<tr>
+<td>10222001</td>
+<td>李霞明</td>
+<td>经济系</td>
+<td>王强</td>
+<td>普通化学</td>
+<td>90</td>
+</tr>
+<tr>
+<td>10222002</td>
+<td>张丽莉</td>
+<td>经济系</td>
+<td>王强</td>
+<td>高等数学</td>
+<td>81</td>
+</tr>
+<tr>
+<td>10222002</td>
+<td>张丽莉</td>
+<td>经济系</td>
+<td>王强</td>
+<td>大学英语</td>
+<td>99</td>
+</tr>
+<tr>
+<td>10222002</td>
+<td>张丽莉</td>
+<td>经济系</td>
+<td>王强</td>
+<td>计算机基础</td>
+<td>99</td>
+</tr>
+<tr>
+<td>10222003</td>
+<td>高峰</td>
+<td>法律系</td>
+<td>刘雯</td>
+<td>高等数学</td>
+<td>78</td>
+</tr>
+<tr>
+<td>10222003</td>
+<td>高峰</td>
+<td>法律系</td>
+<td>刘雯</td>
+<td>法学基础</td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+<p>表3</p>
 <p>下面列出表3的依赖关系</p>
 <p>学号→姓名</p>
 <p>学号→系名</p>
@@ -228,97 +209,181 @@
 <p>学生（学号，姓名，系名，课名，系主任）</p>
 <p>成绩（学号，课名，分数）</p>
 <p>可以看出，对于学生表，由于主键只有学号，所以肯定符合2NF，对于成绩表，作为学号和课名作为主键，非主属性分数由学号和课名共同决定，所以也符合2NF。</p>
-<p><table></table></p>
-<p><tr></tr></p>
-<p><td>学号</td></p>
-<p><td>课名</td></p>
-<p><td>分数</td><br></p>
-<p><tr></tr></p>
-<p><td>10222001</td></p>
-<p><td>高等数学</td></p>
-<p><td>95</td><br></p>
-<p><td>10222001</td></p>
-<p><td>大学英语</td></p>
-<p><td>89</td><br></p>
-<p><td>10222001</td></p>
-<p><td>普通化学</td></p>
-<p><td>90</td><br></p>
-<p><td>10222002</td></p>
-<p><td>高等数学</td></p>
-<p><td>81</td><br></p>
-<p><td>10222002</td></p>
-<p><td>大学英语</td></p>
-<p><td>99</td><br></p>
-<p><td>10222002</td></p>
-<p><td>计算机基础</td></p>
-<p><td>99</td><br></p>
-<p><td>10222003</td></p>
-<p><td>高等数学</td></p>
-<p><td>78</td><br></p>
-<p><td>10222003</td></p>
-<p><td>法学基础</td></p>
-<p><td>89</td><br><br><br>表4</p>
-<p><table></table></p>
-<p><tr></tr></p>
-<p><td>学号</td></p>
-<p><td>姓名</td></p>
-<p><td>系名</td></p>
-<p><td>系主任</td><br></p>
-<p><tr></tr></p>
-<p><td>10222001</td></p>
-<p><td>李霞明</td></p>
-<p><td>经济系</td></p>
-<p><td>王强</td><br></p>
-<p><tr></tr></p>
-<p><td>10222002</td></p>
-<p><td>张丽莉</td></p>
-<p><td>经济系</td></p>
-<p><td>王强</td><br></p>
-<p><tr></tr></p>
-<p><td>10222003</td></p>
-<p><td>高峰</td></p>
-<p><td>法律系</td></p>
-<p><td>刘雯</td><br><br><br>表5</p>
-<p>###第三范式</p>
-<p>####数据库中的数据对于主键不存在函数传递依赖<br>第三范式在第二范式的基础之上下厨了非主属性对于码的依赖。</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>课名</th>
+<th>分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10222001</td>
+<td>高等数学</td>
+<td>95</td>
+</tr>
+<tr>
+<td>10222001</td>
+<td>大学英语</td>
+<td>89</td>
+</tr>
+<tr>
+<td>10222001</td>
+<td>普通化学</td>
+<td>90</td>
+</tr>
+<tr>
+<td>10222002</td>
+<td>高等数学</td>
+<td>81</td>
+</tr>
+<tr>
+<td>10222002</td>
+<td>大学英语</td>
+<td>99</td>
+</tr>
+<tr>
+<td>10222002</td>
+<td>计算机基础</td>
+<td>99</td>
+</tr>
+<tr>
+<td>10222003</td>
+<td>高等数学</td>
+<td>78</td>
+</tr>
+<tr>
+<td>0222003</td>
+<td>法学基础</td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+<p>表4</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>系名</th>
+<th>系主任</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10222001</td>
+<td>李霞明</td>
+<td>经济系</td>
+<td>王强</td>
+</tr>
+<tr>
+<td>10222002</td>
+<td>张丽莉</td>
+<td>经济系</td>
+<td>王强</td>
+</tr>
+<tr>
+<td>10222003</td>
+<td>高峰</td>
+<td>法律系</td>
+<td>刘雯</td>
+</tr>
+</tbody>
+</table>
+<p>表5</p>
+<h3 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h3><h4 id="数据库中的数据对于主键不存在函数传递依赖"><a href="#数据库中的数据对于主键不存在函数传递依赖" class="headerlink" title="数据库中的数据对于主键不存在函数传递依赖"></a>数据库中的数据对于主键不存在函数传递依赖</h4><p>第三范式在第二范式的基础之上下厨了非主属性对于码的依赖。</p>
 <p>加下来我们看看表4和表5是否符合第三范式的要求</p>
 <p>对于成绩表而言，由于非主属性只有一个，所以不可能存在传递依赖</p>
 <p>对于学生表，主键为学号，非主属性为姓名，系名，主任。由于 学号→系名 系名→系主任，所以存在非主属性对于码的传递依赖。</p>
 <p>为了让学生表达到第三范式，我们需要进一步分解数据</p>
 <p>成绩（学号，课名，分数）<br>学生（学号，姓名，系名）<br>系（系名，系主任）</p>
-<p><table></table></p>
-<p><tr></tr></p>
-<p><td>学号</td></p>
-<p><td>姓名</td></p>
-<p><td>系名</td><br></p>
-<p><tr></tr></p>
-<p><td>10222001</td></p>
-<p><td>李霞明</td></p>
-<p><td>经济系</td><br></p>
-<p><tr></tr></p>
-<p><td>10222002</td></p>
-<p><td>张丽莉</td></p>
-<p><td>经济系</td><br></p>
-<p><tr></tr></p>
-<p><td>10222003</td></p>
-<p><td>高峰</td></p>
-<p><td>法律系</td><br><br><br>表6</p>
-<p><table></table></p>
-<p><tr></tr></p>
-<p><td>系名</td></p>
-<p><td>系主任</td><br></p>
-<p><tr></tr></p>
-<p><td>法律系</td></p>
-<p><td>刘雯</td><br></p>
-<p><tr></tr></p>
-<p><td>经济系</td></p>
-<p><td>王强</td><br><br><br>表7</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>系名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10222001</td>
+<td>李霞明</td>
+<td>经济系</td>
+</tr>
+<tr>
+<td>10222002</td>
+<td>张丽莉</td>
+<td>经济系</td>
+</tr>
+<tr>
+<td>10222003</td>
+<td>高峰</td>
+<td>法律系</td>
+</tr>
+</tbody>
+</table>
+<p>表6</p>
+<table>
+<thead>
+<tr>
+<th>系名</th>
+<th>系主任</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>法律系</td>
+<td>刘雯</td>
+</tr>
+<tr>
+<td>经济系</td>
+<td>王强</td>
+</tr>
+</tbody>
+</table>
+<p>表7</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>设置layout viewport  的宽度，为一个正整数，或字符串”width-device”</td>
+</tr>
+<tr>
+<td>initial-scale</td>
+<td>设置页面的初始缩放值，为一个数字，可以带小数</td>
+</tr>
+<tr>
+<td>minimum-scale</td>
+<td>允许用户的最小缩放值，为一个数字，可以带小数</td>
+</tr>
+<tr>
+<td>maximum-scale</td>
+<td>允许用户的最大缩放值，为一个数字，可以带小数</td>
+</tr>
+<tr>
+<td>height</td>
+<td>设置layout viewport  的高度，这个属性对我们并不重要，很少使用</td>
+</tr>
+<tr>
+<td>user-scalable</td>
+<td>是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes代表允许</td>
+</tr>
+</tbody>
+</table>
 <p>符合第三范式的数据库设计，基本解决了了数据冗余过大，插入修改删除异常。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/26/数据库范式/" data-id="cizmr3rx20001swwgmw6gwerr" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/02/26/数据库范式/" data-id="cizmr5b5w0001uhwgmgdbc4uq" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
@@ -331,7 +396,7 @@
   
   
     <a href="/2017/02/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -349,7 +414,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
     </div>
@@ -359,7 +424,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
     </div>
@@ -368,7 +433,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
@@ -378,7 +443,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
@@ -403,7 +468,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
