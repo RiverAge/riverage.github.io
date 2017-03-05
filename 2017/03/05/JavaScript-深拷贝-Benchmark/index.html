@@ -5,16 +5,16 @@
   
   <title>JavaScript 深拷贝 Benchmark | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="stack overflow 上有一个关于深拷贝的效率的问题讨论。What is the most efficient way to deep clone an object in JavaScript?。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法。但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下这些">
+  <meta name="description" content="stack overflow 上有一个关于深拷贝的效率的问题讨论。What is the most efficient way to deep clone an object in JavaScript?。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法,但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下通过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 深拷贝 Benchmark">
 <meta property="og:url" content="http://yoursite.com/2017/03/05/JavaScript-深拷贝-Benchmark/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="stack overflow 上有一个关于深拷贝的效率的问题讨论。What is the most efficient way to deep clone an object in JavaScript?。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法。但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下这些">
-<meta property="og:updated_time" content="2017-03-05T06:52:54.000Z">
+<meta property="og:description" content="stack overflow 上有一个关于深拷贝的效率的问题讨论。What is the most efficient way to deep clone an object in JavaScript?。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法,但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下通过">
+<meta property="og:updated_time" content="2017-03-05T06:54:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 深拷贝 Benchmark">
-<meta name="twitter:description" content="stack overflow 上有一个关于深拷贝的效率的问题讨论。What is the most efficient way to deep clone an object in JavaScript?。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法。但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下这些">
+<meta name="twitter:description" content="stack overflow 上有一个关于深拷贝的效率的问题讨论。What is the most efficient way to deep clone an object in JavaScript?。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法,但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下通过">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -85,7 +85,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>stack overflow 上有一个关于深拷贝的效率的问题讨论。<a href="http://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript" target="_blank" rel="external">What is the most efficient way to deep clone an object in JavaScript?</a>。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法。但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下这些方法在node.js上的性能如何。</p>
+        <p>stack overflow 上有一个关于深拷贝的效率的问题讨论。<a href="http://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript" target="_blank" rel="external">What is the most efficient way to deep clone an object in JavaScript?</a>。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法,但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下通过node.js这些方法的性能如何。</p>
 <p>安装 benchmark jquery loadsh immutable angular</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save benchmark loadsh immutable jsdom</div></pre></td></tr></table></figure>
 <p>由于 angular 和 jQuery 所执行的条件依赖于浏览器的dom, 所以我们引入jsdom创建基于node.js的浏览器环境提供给 angular 和 jQuery 执行。</p>
@@ -108,7 +108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/05/JavaScript-深拷贝-Benchmark/" data-id="cizwbmn7r00007vwghsilkio2" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/05/JavaScript-深拷贝-Benchmark/" data-id="cizwbp73y00009hwgxdb1qzmg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaSciprt-Benchmark-lodash-immutable/">JavaSciprt Benchmark lodash immutable</a></li></ul>
@@ -121,7 +121,7 @@
   
   
     <a href="/2017/03/04/JavaSciprt内置对象/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">JavaScript内置对象</div>
     </a>
   
@@ -139,7 +139,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaSciprt-Benchmark-lodash-immutable/">JavaSciprt Benchmark lodash immutable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-前端/">JavaScript 前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
     </div>
@@ -149,7 +149,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/JavaSciprt-Benchmark-lodash-immutable/" style="font-size: 10px;">JavaSciprt Benchmark lodash immutable</a> <a href="/tags/JavaScript-前端/" style="font-size: 10px;">JavaScript 前端</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
     </div>
@@ -168,7 +168,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -197,7 +197,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
