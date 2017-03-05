@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,63 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-JavaScript-深拷贝-Benchmark" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/05/JavaScript-深拷贝-Benchmark/" class="article-date">
+  <time datetime="2017-03-05T05:33:24.000Z" itemprop="datePublished">2017-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/05/JavaScript-深拷贝-Benchmark/">JavaScript 深拷贝 Benchmark</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>stack overflow 上有一个关于深拷贝的效率的问题讨论。<a href="http://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript" target="_blank" rel="external">What is the most efficient way to deep clone an object in JavaScript?</a>。文中提到了使用 JSON.parse 和 JSON.stringify 对一个对象进行拷贝的方法。但题主对其效率问题提出了质疑。下面我们将对其中提到深拷贝的方法进行benchmark，看一下这些方法在node.js上的性能如何。</p>
+<p>安装 benchmark jquery loadsh immutable angular</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save benchmark loadsh immutable jsdom</div></pre></td></tr></table></figure>
+<p>由于 angular 和 jQuery 所执行的条件依赖于浏览器的dom, 所以我们引入jsdom创建基于node.js的浏览器环境提供给 angular 和 jQuery 执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">var _ = require(&apos;lodash&apos;);</div><div class="line">var jsdom = require(&apos;jsdom&apos;)</div><div class="line">var Immutable = require(&apos;immutable&apos;)</div><div class="line">var Benchmark = require(&apos;benchmark&apos;)</div><div class="line">var suite = new Benchmark.Suite;</div><div class="line"></div><div class="line">var obj = &#123; a: &quot;hello&quot;, c: &quot;test&quot;, po: 33, arr: [1, 2, 3, 4], anotherObj: &#123; a: 33, str: &quot;whazzup&quot; &#125; &#125;;</div><div class="line"></div><div class="line">jsdom.env(&#123;</div><div class="line">    url: &quot;http://baidu.com&quot;,</div><div class="line">    scripts: [&apos;http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js&apos;,</div><div class="line">        &apos;https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js&apos;],</div><div class="line">    done: function (err, window) &#123;</div><div class="line">        var $ = window.$</div><div class="line">        var angular = window.angular</div><div class="line"></div><div class="line">        suite.add(&apos;JSON.parse#test&apos;, function () &#123;</div><div class="line">            var obj2 = JSON.parse(JSON.stringify(obj));</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;lodash#test&apos;, function () &#123;</div><div class="line">                var obj3 = _.clone(obj, true);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;angular.copy#test&apos;, function () &#123;</div><div class="line">                var obj4 = angular.copy(obj);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;jQuery.extend#test&apos;, function () &#123;</div><div class="line">                var obj5 = $.extend(true, &#123;&#125;, obj);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;Immutable#test&apos;, function () &#123;</div><div class="line">                var obj5 = Immutable.fromJS(obj).toJS();</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;Object.assign#test&apos;, function () &#123;</div><div class="line">                var obj5 = Object.assign(&#123;&#125;, obj);</div><div class="line">            &#125;)</div><div class="line">            // add listeners</div><div class="line">            .on(&apos;cycle&apos;, function (event) &#123;</div><div class="line">                console.log(String(event.target));</div><div class="line">            &#125;)</div><div class="line">            .on(&apos;complete&apos;, function () &#123;</div><div class="line">                console.log(&apos;Fastest is &apos; + this.filter(&apos;fastest&apos;).map(&apos;name&apos;));</div><div class="line">            &#125;)</div><div class="line">            // run async</div><div class="line">            .run(&#123; &apos;async&apos;: true &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>运行测试文件得到以下结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">JSON.parse#test x 314,528 ops/sec ±1.93% (83 runs sampled)</div><div class="line">lodash#test x 305,813 ops/sec ±9.78% (74 runs sampled)</div><div class="line">angular.copy#test x 200,431 ops/sec ±3.16% (79 runs sampled)</div><div class="line">jQuery.extend#test x 145,332 ops/sec ±3.24% (78 runs sampled)</div><div class="line">Immutable#test x 30,055 ops/sec ±8.69% (60 runs sampled)</div><div class="line">Object.assign#test x 841,294 ops/sec ±6.25% (75 runs sampled)</div><div class="line">Fastest is Object.assign#test</div></pre></td></tr></table></figure>
+<p>由于 Object.assign 实际上执行的是潜复制，所以这里应该执行深复制最快的是 JSON.parse，这里由快到慢的顺序是：</p>
+<ol>
+<li>Object.assign</li>
+<li>JSON.parse/JSON.stringify</li>
+<li>lodash</li>
+<li>angular.copy</li>
+<li>jQuery.extend</li>
+<li>Immutable</li>
+</ol>
+<p>但是JSON.parse执行深复制的时候，关于时间的处理是有一定问题的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;date: new Date()&#125;</div><div class="line">undefined</div><div class="line">obj</div><div class="line">Object &#123;date: Sun Mar 05 2017 14:49:49 GMT+0800 (CST)&#125;</div><div class="line">var obj2 = JSON.parse(JSON.stringify(obj))</div><div class="line">undefined</div><div class="line">obj2</div><div class="line">Object &#123;date: &quot;2017-03-05T06:49:49.701Z&quot;&#125;</div></pre></td></tr></table></figure>
+<p>JSON.stringify会对日期对象进行字符串话的处理，复制前后的对象不在一致，这一点需要注意。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/05/JavaScript-深拷贝-Benchmark/" data-id="cizwbmn7r00007vwghsilkio2" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaSciprt-Benchmark-lodash-immutable/">JavaSciprt Benchmark lodash immutable</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-JavaSciprt内置对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -267,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/04/JavaSciprt内置对象/" data-id="cizw8kyrh0000q0wgxuvj6jcm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/04/JavaSciprt内置对象/" data-id="cizwbmn7v00017vwg2e1m6afs" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-前端/">JavaScript 前端</a></li></ul>
@@ -559,7 +616,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/26/数据库范式/" data-id="cizw8kys70003q0wg7sxqxg8m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/26/数据库范式/" data-id="cizwbmn8000037vwgqn4onyfx" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
@@ -581,9 +638,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-前端/">JavaScript 前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaSciprt-Benchmark-lodash-immutable/">JavaSciprt Benchmark lodash immutable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-前端/">JavaScript 前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
     </div>
   </div>
 
@@ -591,16 +648,16 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript-前端/" style="font-size: 10px;">JavaScript 前端</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+      <a href="/tags/JavaSciprt-Benchmark-lodash-immutable/" style="font-size: 10px;">JavaSciprt Benchmark lodash immutable</a> <a href="/tags/JavaScript-前端/" style="font-size: 10px;">JavaScript 前端</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Arkiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
@@ -610,9 +667,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Siste innlegg</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/03/05/JavaScript-深拷贝-Benchmark/">JavaScript 深拷贝 Benchmark</a>
+          </li>
         
           <li>
             <a href="/2017/03/04/JavaSciprt内置对象/">JavaScript内置对象</a>
@@ -635,7 +696,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
