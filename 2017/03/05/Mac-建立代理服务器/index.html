@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mac 建立代理服务器 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="手机客户端服务器在设置代理服务器之后，手机上的所有通信都会经过制定的代理服务器。这样的话，如果代理服务器如果通过 VPN 或 SS 连接到外网络的话，连接到代理服务器的手机也将会访问到外网。这样做的话我们手机的客户端除了指定服务器地址的话，不需要其他的配置就可以直接翻墙了。
+首先在 Mac 上建立代理服务器
+1brew install Privoxy
+编辑配置文件
+1echo &amp;apos;list">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac 建立代理服务器">
+<meta property="og:url" content="http://yoursite.com/2017/03/05/Mac-建立代理服务器/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="手机客户端服务器在设置代理服务器之后，手机上的所有通信都会经过制定的代理服务器。这样的话，如果代理服务器如果通过 VPN 或 SS 连接到外网络的话，连接到代理服务器的手机也将会访问到外网。这样做的话我们手机的客户端除了指定服务器地址的话，不需要其他的配置就可以直接翻墙了。
+首先在 Mac 上建立代理服务器
+1brew install Privoxy
+编辑配置文件
+1echo &amp;apos;list">
+<meta property="og:updated_time" content="2017-03-05T10:51:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac 建立代理服务器">
+<meta name="twitter:description" content="手机客户端服务器在设置代理服务器之后，手机上的所有通信都会经过制定的代理服务器。这样的话，如果代理服务器如果通过 VPN 或 SS 连接到外网络的话，连接到代理服务器的手机也将会访问到外网。这样做的话我们手机的客户端除了指定服务器地址的话，不需要其他的配置就可以直接翻墙了。
+首先在 Mac 上建立代理服务器
+1brew install Privoxy
+编辑配置文件
+1echo &amp;apos;list">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Mac-建立代理服务器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/05/Mac-建立代理服务器/" class="article-date">
+  <time datetime="2017-03-05T10:37:21.000Z" itemprop="datePublished">2017-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac 建立代理服务器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>手机客户端服务器在设置代理服务器之后，手机上的所有通信都会经过制定的代理服务器。这样的话，如果代理服务器如果通过 VPN 或 SS 连接到外网络的话，连接到代理服务器的手机也将会访问到外网。这样做的话我们手机的客户端除了指定服务器地址的话，不需要其他的配置就可以直接翻墙了。</p>
+<p>首先在 Mac 上建立代理服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install Privoxy</div></pre></td></tr></table></figure>
+<p>编辑配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;listen-address&apos; 0.0.0.0:9092&apos; &gt;&gt; /usr/local/etc/privoxy/config</div></pre></td></tr></table></figure>
+<p>启动 Privoxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/Cellar/privoxy/3.0.24/sbin/privoxy /usr/local/etc/privoxy/config</div></pre></td></tr></table></figure>
+<p>检查 Privoxy 进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div><div class="line">euky             69148   0.0  0.0  2461160   1068   ??  Ss    6:35下午   0:00.05 /usr/local/Cellar/privoxy/3.0.24/sbin/privoxy /usr/local/etc/privoxy/config</div><div class="line">euky             69483   0.0  0.0  2440996    704 s003  R+    6:48下午   0:00.00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn privoxy</div></pre></td></tr></table></figure>
+<p>这样 Privoxy 已经提供了监听在9092端口的 HTTP 代理服务器。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/05/Mac-建立代理服务器/" data-id="cizwk4v3x0001oxwgrhdbdr5s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Privoxy/">Privoxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理服务器/">代理服务器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/翻墙/">翻墙</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/05/JavaScript-深拷贝-Benchmark/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript 深拷贝 Benchmark</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaSciprt-Benchmark-lodash-immutable/">JavaSciprt Benchmark lodash immutable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-前端/">JavaScript 前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Privoxy/">Privoxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理服务器/">代理服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻墙/">翻墙</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JavaSciprt-Benchmark-lodash-immutable/" style="font-size: 10px;">JavaSciprt Benchmark lodash immutable</a> <a href="/tags/JavaScript-前端/" style="font-size: 10px;">JavaScript 前端</a> <a href="/tags/Privoxy/" style="font-size: 10px;">Privoxy</a> <a href="/tags/代理服务器/" style="font-size: 10px;">代理服务器</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/翻墙/" style="font-size: 10px;">翻墙</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/05/Mac-建立代理服务器/">Mac 建立代理服务器</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/05/JavaScript-深拷贝-Benchmark/">JavaScript 深拷贝 Benchmark</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/04/JavaSciprt内置对象/">JavaScript内置对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/26/数据库范式/">数据库范式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
