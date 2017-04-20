@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,49 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-AOP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/20/AOP/" class="article-date">
+  <time datetime="2017-04-20T13:31:23.000Z" itemprop="datePublished">2017-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/20/AOP/">AOP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NTE1MDk5MA==&amp;mid=2672797679&amp;idx=1&amp;sn=4c44e1a27b37cd30505f1f1eec88f51a&amp;chksm=85675b8eb210d298295ed6a51fe16a632d83d732413564e88e508c66a1cebe77e89a6c0cb9fe#rd" target="_blank" rel="external">好书一起读(115)：重学Spring之面向切面</a></p>
+<p>基于Java语言的web开发，本质是用面向对象的组织，面向过程的逻辑，来解决问题。</p>
+<p>但仍会遇到一种麻烦，即假如一个流程分三个步骤，分别是X,A,Y，另一个流程的三个步骤是X,B,Y。写在程序里，两个方法体分别是XAY和XBY，显然，这出现了重复，违反了DRY原则。你可以把X和Y分别抽成一个方法，但至少还是要写一条语句来调用方法，xAy，xBy，重复依然存在。</p>
+<p>如果采用模板方法的模式，在抽象父类方法体中声明x?y，其中?部分为抽象方法，由具体子类实现。但这就出现了继承，而且调用者只能调用父类声明的方法，耦合性太强，不灵活。<br>所以，我们常看到，只有那些本来就是调用者调用父类声明的方法的情况，比如表现层，或者本来就不用太灵活，比如只提供增删改查的持久层，才总出现抽象父类的身影。</p>
+<p>具体Controller is-a 抽象Controller，具体Dao is-a 抽象Dao，这大家都能接受。<br>但除了在抽象Controller、抽象Dao中固定的步骤之外，我们就不需要点别的吗？<br>比如在某些Controller方法运行之前做点什么，在某些Dao方法运行之前之后做点什么？<br>而且最好能基于配置，基于约定，而不是都死乎乎硬编码到代码里。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/20/AOP/" data-id="cj1qgmw820001ztwgkx5mxum8" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程范式/">编程范式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Mac-建立代理服务器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -99,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/05/Mac-建立代理服务器/" data-id="cj1qfzm390003s0wgexb09kt3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/05/Mac-建立代理服务器/" data-id="cj1qgmw8d0005ztwgu8sz1yuo" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Privoxy/">Privoxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理服务器/">代理服务器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/翻墙/">翻墙</a></li></ul>
@@ -137,9 +180,9 @@
 <p>安装 benchmark jquery loadsh immutable angular</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save benchmark lodash immutable jsdom</div></pre></td></tr></table></figure>
 <p>由于 angular 和 jQuery 所执行的上下文依赖于浏览器环境, 所以我们引入 jsdom 创建基于 node.js 的浏览器环境提供给 angular 和 jQuery 执行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">var _ = require(&apos;lodash&apos;);</div><div class="line">var jsdom = require(&apos;jsdom&apos;)</div><div class="line">var Immutable = require(&apos;immutable&apos;)</div><div class="line">var Benchmark = require(&apos;benchmark&apos;)</div><div class="line">var suite = new Benchmark.Suite;</div><div class="line"></div><div class="line">var obj = &#123; a: &quot;hello&quot;, c: &quot;test&quot;, po: 33, arr: [1, 2, 3, 4], anotherObj: &#123; a: 33, str: &quot;whazzup&quot; &#125; &#125;;</div><div class="line"></div><div class="line">jsdom.env(&#123;</div><div class="line">    url: &quot;http://baidu.com&quot;,</div><div class="line">    scripts: [&apos;http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js&apos;,</div><div class="line">        &apos;https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js&apos;],</div><div class="line">    done: function (err, window) &#123;</div><div class="line">        var $ = window.$</div><div class="line">        var angular = window.angular</div><div class="line"></div><div class="line">        suite.add(&apos;JSON.parse#test&apos;, function () &#123;</div><div class="line">            var obj2 = JSON.parse(JSON.stringify(obj));</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;lodash#test&apos;, function () &#123;</div><div class="line">                var obj3 = _.clone(obj, true);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;angular.copy#test&apos;, function () &#123;</div><div class="line">                var obj4 = angular.copy(obj);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;jQuery.extend#test&apos;, function () &#123;</div><div class="line">                var obj5 = $.extend(true, &#123;&#125;, obj);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;Immutable#test&apos;, function () &#123;</div><div class="line">                var obj5 = Immutable.fromJS(obj).toJS();</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;Object.assign#test&apos;, function () &#123;</div><div class="line">                var obj5 = Object.assign(&#123;&#125;, obj);</div><div class="line">            &#125;)</div><div class="line">            // add listeners</div><div class="line">            .on(&apos;cycle&apos;, function (event) &#123;</div><div class="line">                console.log(String(event.target));</div><div class="line">            &#125;)</div><div class="line">            .on(&apos;complete&apos;, function () &#123;</div><div class="line">                console.log(&apos;Fastest is &apos; + this.filter(&apos;fastest&apos;).map(&apos;name&apos;));</div><div class="line">            &#125;)</div><div class="line">            // run async</div><div class="line">            .run(&#123; &apos;async&apos;: true &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">var _ = require(&apos;lodash&apos;);</div><div class="line">var jsdom = require(&apos;jsdom&apos;)</div><div class="line">var Immutable = require(&apos;immutable&apos;)</div><div class="line">var Benchmark = require(&apos;benchmark&apos;)</div><div class="line">var suite = new Benchmark.Suite;</div><div class="line"></div><div class="line">var obj = &#123; a: &quot;hello&quot;, c: &quot;test&quot;, po: 33, arr: [1, 2, 3, 4], anotherObj: &#123; a: 33, str: &quot;whazzup&quot; &#125; &#125;;</div><div class="line"></div><div class="line">jsdom.env(&#123;</div><div class="line">    url: &quot;http://baidu.com&quot;,</div><div class="line">    scripts: [&apos;http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js&apos;,</div><div class="line">        &apos;https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js&apos;],</div><div class="line">    done: function (err, window) &#123;</div><div class="line">        var $ = window.$</div><div class="line">        var angular = window.angular</div><div class="line"></div><div class="line">        suite.add(&apos;JSON.parse#test&apos;, function () &#123;</div><div class="line">            var obj2 = JSON.parse(JSON.stringify(obj));</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;lodash.clone#test&apos;, function () &#123;</div><div class="line">                var obj3 = _.clone(obj, true);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;angular.copy#test&apos;, function () &#123;</div><div class="line">                var obj4 = angular.copy(obj);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;jQuery.extend#test&apos;, function () &#123;</div><div class="line">                var obj5 = $.extend(true, &#123;&#125;, obj);</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;Immutable#test&apos;, function () &#123;</div><div class="line">                var obj5 = Immutable.fromJS(obj).toJS();</div><div class="line">            &#125;)</div><div class="line">            .add(&apos;Object.assign#test&apos;, function () &#123;</div><div class="line">                var obj6 = Object.assign(&#123;&#125;, obj);</div><div class="line">            &#125;)</div><div class="line">             .add(&apos;lodash.cloneDeep#test&apos;, function () &#123;</div><div class="line">                var obj7 = _.cloneDeep(obj);</div><div class="line">            &#125;)</div><div class="line">            // add listeners</div><div class="line">            .on(&apos;cycle&apos;, function (event) &#123;</div><div class="line">                console.log(String(event.target));</div><div class="line">            &#125;)</div><div class="line">            .on(&apos;complete&apos;, function () &#123;</div><div class="line">                console.log(&apos;Fastest is &apos; + this.filter(&apos;fastest&apos;).map(&apos;name&apos;));</div><div class="line">            &#125;)</div><div class="line">            // run async</div><div class="line">            .run(&#123; &apos;async&apos;: true &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>运行测试文件得到以下结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">JSON.parse#test x 314,528 ops/sec ±1.93% (83 runs sampled)</div><div class="line">lodash#test x 305,813 ops/sec ±9.78% (74 runs sampled)</div><div class="line">angular.copy#test x 200,431 ops/sec ±3.16% (79 runs sampled)</div><div class="line">jQuery.extend#test x 145,332 ops/sec ±3.24% (78 runs sampled)</div><div class="line">Immutable#test x 30,055 ops/sec ±8.69% (60 runs sampled)</div><div class="line">Object.assign#test x 841,294 ops/sec ±6.25% (75 runs sampled)</div><div class="line">Fastest is Object.assign#test</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">JSON.parse#test x 341,384 ops/sec ±0.83% (89 runs sampled)</div><div class="line">lodash.clone#test x 363,328 ops/sec ±0.79% (88 runs sampled)</div><div class="line">angular.copy#test x 227,521 ops/sec ±0.69% (82 runs sampled)</div><div class="line">jQuery.extend#test x 164,081 ops/sec ±0.68% (88 runs sampled)</div><div class="line">Immutable#test x 32,697 ops/sec ±6.34% (66 runs sampled)</div><div class="line">Object.assign#test x 923,069 ops/sec ±2.31% (89 runs sampled)</div><div class="line">lodash.cloneDeep#test x 156,321 ops/sec ±0.80% (87 runs sampled)</div><div class="line">Fastest is Object.assign#test</div></pre></td></tr></table></figure>
 <p>由于 Object.assign 实际上执行的是潜复制，所以这里应该执行深复制最快的是 JSON.parse，这里由快到慢的顺序是：</p>
 <ol>
 <li>Object.assign</li>
@@ -156,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/05/JavaScript-深拷贝-Benchmark/" data-id="cj1qfzm330001s0wgrxr0hi7x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/05/JavaScript-深拷贝-Benchmark/" data-id="cj1qgmw7y0000ztwghxzjnl8y" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Benchmark/">Benchmark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/immutable/">immutable</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lodash/">lodash</a></li></ul>
@@ -374,7 +417,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/04/JavaSciprt内置对象/" data-id="cj1qfzm2y0000s0wgnissjvjy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/04/JavaSciprt内置对象/" data-id="cj1qgmw880003ztwgj47siuqs" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -666,7 +709,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/26/数据库范式/" data-id="cj1qfzm3w000ls0wgul9ib28z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/26/数据库范式/" data-id="cj1qgmw8a0004ztwg6ijihnac" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/范式/">范式</a></li></ul>
@@ -688,9 +731,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Benchmark/">Benchmark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Privoxy/">Privoxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/immutable/">immutable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">lodash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理服务器/">代理服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻墙/">翻墙</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范式/">范式</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Benchmark/">Benchmark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Privoxy/">Privoxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/immutable/">immutable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">lodash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理服务器/">代理服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程范式/">编程范式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻墙/">翻墙</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范式/">范式</a></li></ul>
     </div>
   </div>
 
@@ -698,9 +741,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Privoxy/" style="font-size: 10px;">Privoxy</a> <a href="/tags/immutable/" style="font-size: 10px;">immutable</a> <a href="/tags/lodash/" style="font-size: 10px;">lodash</a> <a href="/tags/代理服务器/" style="font-size: 10px;">代理服务器</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/翻墙/" style="font-size: 10px;">翻墙</a> <a href="/tags/范式/" style="font-size: 10px;">范式</a>
+      <a href="/tags/Benchmark/" style="font-size: 10px;">Benchmark</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Privoxy/" style="font-size: 10px;">Privoxy</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/immutable/" style="font-size: 10px;">immutable</a> <a href="/tags/lodash/" style="font-size: 10px;">lodash</a> <a href="/tags/代理服务器/" style="font-size: 10px;">代理服务器</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/编程范式/" style="font-size: 10px;">编程范式</a> <a href="/tags/翻墙/" style="font-size: 10px;">翻墙</a> <a href="/tags/范式/" style="font-size: 10px;">范式</a>
     </div>
   </div>
 
@@ -709,7 +752,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -717,9 +760,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/20/AOP/">AOP</a>
+          </li>
         
           <li>
             <a href="/2017/03/05/Mac-建立代理服务器/">Mac 建立代理服务器</a>
@@ -750,7 +797,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

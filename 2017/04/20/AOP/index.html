@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mot-clé: 范式 | Hexo</title>
+  <title>AOP | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/范式/index.html">
+  <meta name="description" content="好书一起读(115)：重学Spring之面向切面
+基于Java语言的web开发，本质是用面向对象的组织，面向过程的逻辑，来解决问题。
+但仍会遇到一种麻烦，即假如一个流程分三个步骤，分别是X,A,Y，另一个流程的三个步骤是X,B,Y。写在程序里，两个方法体分别是XAY和XBY，显然，这出现了重复，违反了DRY原则。你可以把X和Y分别抽成一个方法，但至少还是要写一条语句来调用方法，xAy，xBy，重复">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AOP">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/AOP/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="好书一起读(115)：重学Spring之面向切面
+基于Java语言的web开发，本质是用面向对象的组织，面向过程的逻辑，来解决问题。
+但仍会遇到一种麻烦，即假如一个流程分三个步骤，分别是X,A,Y，另一个流程的三个步骤是X,B,Y。写在程序里，两个方法体分别是XAY和XBY，显然，这出现了重复，违反了DRY原则。你可以把X和Y分别抽成一个方法，但至少还是要写一条语句来调用方法，xAy，xBy，重复">
+<meta property="og:updated_time" content="2017-04-20T13:38:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="AOP">
+<meta name="twitter:description" content="好书一起读(115)：重学Spring之面向切面
+基于Java语言的web开发，本质是用面向对象的组织，面向过程的逻辑，来解决问题。
+但仍会遇到一种麻烦，即假如一个流程分三个步骤，分别是X,A,Y，另一个流程的三个步骤是X,B,Y。写在程序里，两个方法体分别是XAY和XBY，显然，这出现了重复，违反了DRY原则。你可以把X和Y分别抽成一个方法，但至少还是要写一条语句来调用方法，xAy，xBy，重复">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,39 +69,58 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/02/26/数据库范式/" class="archive-article-date">
-  <time datetime="2017-02-26T12:25:34.000Z" itemprop="datePublished">Feb 26</time>
+        <section id="main"><article id="post-AOP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/20/AOP/" class="article-date">
+  <time datetime="2017-04-20T13:31:23.000Z" itemprop="datePublished">2017-04-20</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/26/数据库范式/">数据库范式</a>
+    <h1 class="article-title" itemprop="name">
+      AOP
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NTE1MDk5MA==&amp;mid=2672797679&amp;idx=1&amp;sn=4c44e1a27b37cd30505f1f1eec88f51a&amp;chksm=85675b8eb210d298295ed6a51fe16a632d83d732413564e88e508c66a1cebe77e89a6c0cb9fe#rd" target="_blank" rel="external">好书一起读(115)：重学Spring之面向切面</a></p>
+<p>基于Java语言的web开发，本质是用面向对象的组织，面向过程的逻辑，来解决问题。</p>
+<p>但仍会遇到一种麻烦，即假如一个流程分三个步骤，分别是X,A,Y，另一个流程的三个步骤是X,B,Y。写在程序里，两个方法体分别是XAY和XBY，显然，这出现了重复，违反了DRY原则。你可以把X和Y分别抽成一个方法，但至少还是要写一条语句来调用方法，xAy，xBy，重复依然存在。</p>
+<p>如果采用模板方法的模式，在抽象父类方法体中声明x?y，其中?部分为抽象方法，由具体子类实现。但这就出现了继承，而且调用者只能调用父类声明的方法，耦合性太强，不灵活。<br>所以，我们常看到，只有那些本来就是调用者调用父类声明的方法的情况，比如表现层，或者本来就不用太灵活，比如只提供增删改查的持久层，才总出现抽象父类的身影。</p>
+<p>具体Controller is-a 抽象Controller，具体Dao is-a 抽象Dao，这大家都能接受。<br>但除了在抽象Controller、抽象Dao中固定的步骤之外，我们就不需要点别的吗？<br>比如在某些Controller方法运行之前做点什么，在某些Dao方法运行之前之后做点什么？<br>而且最好能基于配置，基于约定，而不是都死乎乎硬编码到代码里。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/20/AOP/" data-id="cj1qgmw820001ztwgkx5mxum8" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程范式/">编程范式</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/05/Mac-建立代理服务器/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">Mac 建立代理服务器</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
