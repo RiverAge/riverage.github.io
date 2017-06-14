@@ -769,16 +769,19 @@
         
           
             <p>手机客户端服务器在设置代理服务器之后，手机上的所有通信都会经过制定的代理服务器。这样的话，如果代理服务器如果通过 VPN 或 SS 连接到外网络的话，连接到代理服务器的手机也将会访问到外网。这样做的话我们手机的客户端除了指定服务器地址的话，不需要其他的配置就可以直接翻墙了。</p>
-<p>首先在 Mac 上建立代理服务器</p>
+<p>####在 Mac 上建立代理服务器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install Privoxy</div></pre></td></tr></table></figure>
-<p>编辑配置文件</p>
+<p>####编辑配置文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;listen-address&apos; 0.0.0.0:9092&apos; &gt;&gt; /usr/local/etc/privoxy/config</div></pre></td></tr></table></figure>
-<p>启动 Privoxy</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/Cellar/privoxy/3.0.24/sbin/privoxy /usr/local/etc/privoxy/config</div></pre></td></tr></table></figure>
-<p>检查 Privoxy 进程</p>
+<p>####启动 Privoxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/Cellar/privoxy/&#123;x.y.z&#125;/sbin/privoxy /usr/local/etc/privoxy/config</div></pre></td></tr></table></figure>
+<p>####检查 Privoxy 进程</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div><div class="line">euky             69148   0.0  0.0  2461160   1068   ??  Ss    6:35下午   0:00.05 /usr/local/Cellar/privoxy/3.0.24/sbin/privoxy /usr/local/etc/privoxy/config</div><div class="line">euky             69483   0.0  0.0  2440996    704 s003  R+    6:48下午   0:00.00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn privoxy</div></pre></td></tr></table></figure>
 <p>这样 Privoxy 已经提供了监听在9092端口的 HTTP 代理服务器。</p>
-<p>开启记录日志</p>
+<p>####将sock5代理代理转位http代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;forward-socks5t   /               127.0.0.1:1080 .&apos; &gt;&gt; /usr/local/etc/privoxy/config</div></pre></td></tr></table></figure>
+<p>Privoxy将所有连接到的通信通过本地(127.0.0.1)的1080端口的socks5协议转发。</p>
+<p>####开启记录日志</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo &apos;debug 1&apos; &gt;&gt; /usr/local/etc/privoxy/config</div><div class="line">tail -f /usr/local/var/log/privoxy/logfile</div></pre></td></tr></table></figure>
 
           
