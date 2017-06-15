@@ -93,7 +93,7 @@
 
 
 
-<meta name="description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
+<meta name="description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了获得的共享资源，进程需要执行下列操作：
 
 测试控制该资源的信号量
 若此信号量的值为正，则进程可以使用该资源。进程将信号量值减一，表示他使用了一个资源单位。
@@ -103,16 +103,16 @@
 <meta property="og:title" content="信号量(Semaphore)和互斥锁(Mutex)">
 <meta property="og:url" content="http://riverage.github.io/2017/06/15/信号量-Semaphore-和互斥锁-Mutex/index.html">
 <meta property="og:site_name" content="RIMOU">
-<meta property="og:description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
+<meta property="og:description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了获得的共享资源，进程需要执行下列操作：
 
 测试控制该资源的信号量
 若此信号量的值为正，则进程可以使用该资源。进程将信号量值减一，表示他使用了一个资源单位。
 若此信号量的值为0，则进程进入休眠状态，直至信号量大于0，进程被唤醒，他返回到第1步
 当进程不在使用一个信号量控制的共享资源时，该信号量增一。如果有进程正在休眠等待">
-<meta property="og:updated_time" content="2017-06-15T14:38:05.000Z">
+<meta property="og:updated_time" content="2017-06-15T14:39:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信号量(Semaphore)和互斥锁(Mutex)">
-<meta name="twitter:description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
+<meta name="twitter:description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了获得的共享资源，进程需要执行下列操作：
 
 测试控制该资源的信号量
 若此信号量的值为正，则进程可以使用该资源。进程将信号量值减一，表示他使用了一个资源单位。
@@ -334,7 +334,7 @@
       
 
       
-        <h3 id="信号量-Semaphore"><a href="#信号量-Semaphore" class="headerlink" title="信号量(Semaphore)"></a>信号量(Semaphore)</h3><p>信号量是一个计数器，用于多进程对共享数据的访问。<br>为了和偶的共享资源，进程需要执行下列操作：</p>
+        <h3 id="信号量-Semaphore"><a href="#信号量-Semaphore" class="headerlink" title="信号量(Semaphore)"></a>信号量(Semaphore)</h3><p>信号量是一个计数器，用于多进程对共享数据的访问。<br>为了获得的共享资源，进程需要执行下列操作：</p>
 <ol>
 <li>测试控制该资源的信号量</li>
 <li>若此信号量的值为正，则进程可以使用该资源。进程将信号量值减一，表示他使用了一个资源单位。</li>
