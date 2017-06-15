@@ -93,31 +93,31 @@
 
 
 
-<meta name="description" content="###信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
+<meta name="description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
 
 测试控制该资源的信号量
 若此信号量的值为正，则进程可以使用该资源。进程将信号量值减一，表示他使用了一个资源单位。
 若此信号量的值为0，则进程进入休眠状态，直至信号量大于0，进程被唤醒，他返回到第1步
-当进程不在使用一个信号量控制的共享资源时，该信号量增一。如果有进程正在休">
+当进程不在使用一个信号量控制的共享资源时，该信号量增一。如果有进程正在休眠等待">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信号量(Semaphore)和互斥锁(Mutex)">
 <meta property="og:url" content="http://riverage.github.io/2017/06/15/信号量-Semaphore-和互斥锁-Mutex/index.html">
 <meta property="og:site_name" content="RIMOU">
-<meta property="og:description" content="###信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
+<meta property="og:description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
 
 测试控制该资源的信号量
 若此信号量的值为正，则进程可以使用该资源。进程将信号量值减一，表示他使用了一个资源单位。
 若此信号量的值为0，则进程进入休眠状态，直至信号量大于0，进程被唤醒，他返回到第1步
-当进程不在使用一个信号量控制的共享资源时，该信号量增一。如果有进程正在休">
-<meta property="og:updated_time" content="2017-06-15T14:35:48.000Z">
+当进程不在使用一个信号量控制的共享资源时，该信号量增一。如果有进程正在休眠等待">
+<meta property="og:updated_time" content="2017-06-15T14:38:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信号量(Semaphore)和互斥锁(Mutex)">
-<meta name="twitter:description" content="###信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
+<meta name="twitter:description" content="信号量(Semaphore)信号量是一个计数器，用于多进程对共享数据的访问。为了和偶的共享资源，进程需要执行下列操作：
 
 测试控制该资源的信号量
 若此信号量的值为正，则进程可以使用该资源。进程将信号量值减一，表示他使用了一个资源单位。
 若此信号量的值为0，则进程进入休眠状态，直至信号量大于0，进程被唤醒，他返回到第1步
-当进程不在使用一个信号量控制的共享资源时，该信号量增一。如果有进程正在休">
+当进程不在使用一个信号量控制的共享资源时，该信号量增一。如果有进程正在休眠等待">
 
 
 
@@ -334,7 +334,7 @@
       
 
       
-        <p>###信号量(Semaphore)<br>信号量是一个计数器，用于多进程对共享数据的访问。<br>为了和偶的共享资源，进程需要执行下列操作：</p>
+        <h3 id="信号量-Semaphore"><a href="#信号量-Semaphore" class="headerlink" title="信号量(Semaphore)"></a>信号量(Semaphore)</h3><p>信号量是一个计数器，用于多进程对共享数据的访问。<br>为了和偶的共享资源，进程需要执行下列操作：</p>
 <ol>
 <li>测试控制该资源的信号量</li>
 <li>若此信号量的值为正，则进程可以使用该资源。进程将信号量值减一，表示他使用了一个资源单位。</li>
@@ -342,11 +342,9 @@
 <li>当进程不在使用一个信号量控制的共享资源时，该信号量增一。如果有进程正在休眠等待此信号量，则唤醒他们。</li>
 </ol>
 <p>为了正确实现信号量，信号量值的测试及减一操作应当是原子操作。为此，信号量通常在内核中实现的。</p>
-<p>###互斥锁(Mutex)</p>
-<p>互斥锁用于并发环境中，防止两个线程对同一公共资源（全局变量）进行读写。</p>
+<h3 id="互斥锁-Mutex"><a href="#互斥锁-Mutex" class="headerlink" title="互斥锁(Mutex)"></a>互斥锁(Mutex)</h3><p>互斥锁用于并发环境中，防止两个线程对同一公共资源（全局变量）进行读写。</p>
 <p>当多个控制线程共享相同的内存时，需要确保每个线程看到一致的数据。如果每个线程使用的饿变量都是其他线程不会读取或修改的，那么就不存在一致性问题。同样的，如果变量是只读的，多个线程同时读取改变量也不会有一致性问题。但是，当某个线程可以修改变量，而其他线程也可以读取或者修改这个变量的时候，就需要对这些线程同步，以确保他们在访问变量的存储内容是不会访问到无效的数值。</p>
-<p>###信号量VS互斥锁</p>
-<p>信号量用在多线程多任务同步的，一个线程完成了某一个动作就通过信号量告诉别的线程，别的线程再进行某些动作（大家都在semtake的时候，就阻塞在哪里）。而互斥锁是用在多线程多任务互斥的，一个线程占用了某一个资源，那么别的线程就无法访问，直到这个线程unlock，其他的线程才开始可以利用这个资源。比如对全局变量的访问，有时要加锁，操作完了，在解锁。有的时候锁和信号量会同时使用的”<br>也就是说，信号量不一定是锁定某一个资源，而是流程上的概念，比如：有A,B两个线程，B线程要等A线程完成某一任务以后再进行自己下面的步骤，这个任务并不一定是锁定某一资源，还可以是进行一些计算或者数据处理之类。而线程互斥量则是“锁住某一资源”的概念，在锁定期间内，其他线程无法对被保护的数据进行操作。在有些情况下两者可以互换。</p>
+<h3 id="信号量VS互斥锁"><a href="#信号量VS互斥锁" class="headerlink" title="信号量VS互斥锁"></a>信号量VS互斥锁</h3><p>信号量用在多线程多任务同步的，一个线程完成了某一个动作就通过信号量告诉别的线程，别的线程再进行某些动作（大家都在semtake的时候，就阻塞在哪里）。而互斥锁是用在多线程多任务互斥的，一个线程占用了某一个资源，那么别的线程就无法访问，直到这个线程unlock，其他的线程才开始可以利用这个资源。比如对全局变量的访问，有时要加锁，操作完了，在解锁。有的时候锁和信号量会同时使用的”<br>也就是说，信号量不一定是锁定某一个资源，而是流程上的概念，比如：有A,B两个线程，B线程要等A线程完成某一任务以后再进行自己下面的步骤，这个任务并不一定是锁定某一资源，还可以是进行一些计算或者数据处理之类。而线程互斥量则是“锁住某一资源”的概念，在锁定期间内，其他线程无法对被保护的数据进行操作。在有些情况下两者可以互换。</p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
 <li><a href="http://www.cnblogs.com/lonelycatcher/archive/2011/12/20/2294161.html" target="_blank" rel="external">信号量 互斥锁 条件变量的区别</a></li>
 <li><a href="https://book.douban.com/subject/1788421/" target="_blank" rel="external">UNIX环境高级编程</a></li>
@@ -523,7 +521,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#信号量-Semaphore"><span class="nav-number">1.</span> <span class="nav-text">信号量(Semaphore)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#互斥锁-Mutex"><span class="nav-number">2.</span> <span class="nav-text">互斥锁(Mutex)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号量VS互斥锁"><span class="nav-number">3.</span> <span class="nav-text">信号量VS互斥锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
