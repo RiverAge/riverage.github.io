@@ -93,25 +93,25 @@
 
 
 
-<meta name="description" content="Object.createObject.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
-语法1Object.create(proto, [ propertiesObject ])
-参数proto一个对象，应该是新创建的对象的原型。
-propertiesObject可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（这些属性描述符的结构与">
+<meta name="description" content="获取当前的时间Date.now() 和 new Date().getTime() 都可以用来获取当前的时间，它们返回的结果是相同的，但是 Date.now() 的速度与 getTime() 相比速度更快一些。
+12Date.now() - new Date().getTime()0
+使用 Date 对象创建的实例在其创建的那一刻起，它的值就已经冻结了。
+12345const now = new D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="object.create">
-<meta property="og:url" content="http://riverage.github.io/2017/07/02/object-create/index.html">
+<meta property="og:title" content="getTime-vs-now">
+<meta property="og:url" content="http://riverage.github.io/2017/07/06/getTime-vs-now/index.html">
 <meta property="og:site_name" content="RIMOU">
-<meta property="og:description" content="Object.createObject.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
-语法1Object.create(proto, [ propertiesObject ])
-参数proto一个对象，应该是新创建的对象的原型。
-propertiesObject可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（这些属性描述符的结构与">
-<meta property="og:updated_time" content="2017-07-02T12:19:42.000Z">
+<meta property="og:description" content="获取当前的时间Date.now() 和 new Date().getTime() 都可以用来获取当前的时间，它们返回的结果是相同的，但是 Date.now() 的速度与 getTime() 相比速度更快一些。
+12Date.now() - new Date().getTime()0
+使用 Date 对象创建的实例在其创建的那一刻起，它的值就已经冻结了。
+12345const now = new D">
+<meta property="og:updated_time" content="2017-07-06T13:18:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="object.create">
-<meta name="twitter:description" content="Object.createObject.create() 方法使用指定的原型对象和其属性创建了一个新的对象。
-语法1Object.create(proto, [ propertiesObject ])
-参数proto一个对象，应该是新创建的对象的原型。
-propertiesObject可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（这些属性描述符的结构与">
+<meta name="twitter:title" content="getTime-vs-now">
+<meta name="twitter:description" content="获取当前的时间Date.now() 和 new Date().getTime() 都可以用来获取当前的时间，它们返回的结果是相同的，但是 Date.now() 的速度与 getTime() 相比速度更快一些。
+12Date.now() - new Date().getTime()0
+使用 Date 对象创建的实例在其创建的那一刻起，它的值就已经冻结了。
+12345const now = new D">
 
 
 
@@ -139,13 +139,13 @@ propertiesObject可选。该参数对象是一组属性与值，该对象的属�
 
 
 
-  <link rel="canonical" href="http://riverage.github.io/2017/07/02/object-create/"/>
+  <link rel="canonical" href="http://riverage.github.io/2017/07/06/getTime-vs-now/"/>
 
 
 
 
 
-  <title>object.create | RIMOU</title>
+  <title>getTime-vs-now | RIMOU</title>
   
 
 
@@ -264,7 +264,7 @@ propertiesObject可选。该参数对象是一组属性与值，该对象的属�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://riverage.github.io/2017/07/02/object-create/">
+    <link itemprop="mainEntityOfPage" href="http://riverage.github.io/2017/07/06/getTime-vs-now/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梦">
@@ -281,7 +281,7 @@ propertiesObject可选。该参数对象是一组属性与值，该对象的属�
 
         
         
-          <h1 class="post-title" itemprop="name headline">object.create</h1>
+          <h1 class="post-title" itemprop="name headline">getTime-vs-now</h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@ propertiesObject可选。该参数对象是一组属性与值，该对象的属�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-02T19:48:05+08:00">
-                2017-07-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-06T21:05:51+08:00">
+                2017-07-06
               </time>
             
 
@@ -328,21 +328,13 @@ propertiesObject可选。该参数对象是一组属性与值，该对象的属�
       
 
       
-        <h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h3><p>Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象。</p>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.create(proto, [ propertiesObject ])</div></pre></td></tr></table></figure>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><h5 id="proto"><a href="#proto" class="headerlink" title="proto"></a>proto</h5><p>一个对象，应该是新创建的对象的<b>原型</b>。</p>
-<h5 id="propertiesObject"><a href="#propertiesObject" class="headerlink" title="propertiesObject"></a>propertiesObject</h5><p>可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（这些属性描述符的结构与Object.defineProperties()的第二个参数一样）。注意：该参数对象不能是 undefined，另外只有该对象中自身拥有的可枚举的属性才有效，也就是说该对象的原型链上属性是无效的。<br>抛出异常</p>
-<p>如果 proto 参数不是 null 或不是一个对象值，则抛出一个 TypeError 异常。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object.create(&apos;123&apos;)</div><div class="line">Uncaught TypeError: Object prototype may only be an Object or null: 123</div></pre></td></tr></table></figure>
-<h3 id="Object-create-nul-vs"><a href="#Object-create-nul-vs" class="headerlink" title="Object.create(nul) vs {}"></a>Object.create(nul) vs {}</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var p = &#123;&#125;</div><div class="line">var p1 =  Object.create(null)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p.constructor.prototype === Object.prototype</div><div class="line">true</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p1.constructor</div><div class="line">undefined</div></pre></td></tr></table></figure>
-<p>p1 = Object.create(null) 没有继承任何东西，因此也没有任何属性</p>
-<p>一个普通 Javascript 的对象除非你明确在创建它时在 Object.create(null) 指定它的 prototye 为你 null ，否则它默认继承自 Object</p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="external">Object.create()</a></li>
-<li><a href="https://stackoverflow.com/questions/15518328/creating-js-object-with-object-createnull" target="_blank" rel="external">Creating Js object with Object.create(null)?</a></li>
-<li><a href="https://github.com/parse-community/parse-server/blob/master/src/Adapters/Cache/InMemoryCache.js" target="_blank" rel="external">Parse Platform</a></li>
+        <h3 id="获取当前的时间"><a href="#获取当前的时间" class="headerlink" title="获取当前的时间"></a>获取当前的时间</h3><p>Date.now() 和 new Date().getTime() 都可以用来获取当前的时间，它们返回的结果是相同的，但是 Date.now() 的速度与 getTime() 相比速度更快一些。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Date.now() - new Date().getTime()</div><div class="line">0</div></pre></td></tr></table></figure>
+<p>使用 Date 对象创建的实例在其创建的那一刻起，它的值就已经冻结了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const now = new Date()</div><div class="line">setTimeout(() =&gt; &#123;</div><div class="line">	now - Date.now()</div><div class="line">&#125;, 1000)</div><div class="line">- 1021</div></pre></td></tr></table></figure>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://stackoverflow.com/questions/12517359/performance-date-now-vs-date-gettime" target="_blank" rel="external">Performance - Date.now() vs Date.getTime()</a></li>
+<li><a href="https://jsperf.com/gettime-vs-now-0" target="_blank" rel="external">Benchmark getTime -vs -Now</a></li>
 </ul>
 
       
@@ -386,8 +378,8 @@ propertiesObject可选。该参数对象是一组属性与值，该对象的属�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/19/apple-touch-icon/" rel="next" title="apple-touch-icon">
-                <i class="fa fa-chevron-left"></i> apple-touch-icon
+              <a href="/2017/07/02/object-create/" rel="next" title="object.create">
+                <i class="fa fa-chevron-left"></i> object.create
               </a>
             
           </div>
@@ -395,10 +387,6 @@ propertiesObject可选。该参数对象是一组属性与值，该对象的属�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/06/getTime-vs-now/" rel="prev" title="getTime-vs-now">
-                getTime-vs-now <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -518,7 +506,7 @@ propertiesObject可选。该参数对象是一组属性与值，该对象的属�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-create"><span class="nav-number">1.</span> <span class="nav-text">Object.create</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">1.2.</span> <span class="nav-text">参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#proto"><span class="nav-number">1.2.1.</span> <span class="nav-text">proto</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#propertiesObject"><span class="nav-number">1.2.2.</span> <span class="nav-text">propertiesObject</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-create-nul-vs"><span class="nav-number">2.</span> <span class="nav-text">Object.create(nul) vs {}</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">2.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取当前的时间"><span class="nav-number">1.</span> <span class="nav-text">获取当前的时间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">1.1.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>
