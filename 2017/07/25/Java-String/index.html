@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,String," />
 
 
 
@@ -93,12 +93,43 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="RIMOU">
-<meta property="og:url" content="http://riverage.github.io/archives/2017/page/2/index.html">
+<meta name="description" content="常用处理方法
+String replaceAll(String regex, String replacement)
+String replaceFirst(String regex, String replacement)
+
+
+String[] split(String regex)
+String[] split(String regex, int limit)
+
+
+String substri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java String">
+<meta property="og:url" content="http://riverage.github.io/2017/07/25/Java-String/index.html">
 <meta property="og:site_name" content="RIMOU">
+<meta property="og:description" content="常用处理方法
+String replaceAll(String regex, String replacement)
+String replaceFirst(String regex, String replacement)
+
+
+String[] split(String regex)
+String[] split(String regex, int limit)
+
+
+String substri">
+<meta property="og:updated_time" content="2017-07-25T14:52:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RIMOU">
+<meta name="twitter:title" content="Java String">
+<meta name="twitter:description" content="常用处理方法
+String replaceAll(String regex, String replacement)
+String replaceFirst(String regex, String replacement)
+
+
+String[] split(String regex)
+String[] split(String regex, int limit)
+
+
+String substri">
 
 
 
@@ -126,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://riverage.github.io/archives/2017/page/2/"/>
+  <link rel="canonical" href="http://riverage.github.io/2017/07/25/Java-String/"/>
 
 
 
 
 
-  <title>归档 | RIMOU</title>
+  <title>Java String | RIMOU</title>
   
 
 
@@ -157,7 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -241,144 +272,178 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 13 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://riverage.github.io/2017/07/25/Java-String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RIMOU">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java String</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T22:30:38+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h3 id="常用处理方法"><a href="#常用处理方法" class="headerlink" title="常用处理方法"></a>常用处理方法</h3><ul>
+<li>String replaceAll(String regex, String replacement)</li>
+<li>String replaceFirst(String regex, String replacement)</li>
+</ul>
+<ul>
+<li>String[] split(String regex)</li>
+<li>String[] split(String regex, int limit)</li>
+</ul>
+<ul>
+<li><p>String substring(int begain, int end)</p>
+</li>
+<li><p>String trim()</p>
+</li>
+<li><p>String toUpperCase()</p>
+</li>
+<li><p>String toLowerCase()</p>
+</li>
+<li><p>String intern()</p>
+</li>
+<li><p>String concat(String str)</p>
+</li>
+<li><p>int length()</p>
+</li>
+<li><p>boolean isEmpty()</p>
+</li>
+</ul>
+<h3 id="contains"><a href="#contains" class="headerlink" title="contains"></a>contains</h3><p>contains 用来判断是否包含给定的字符串，该方法在 JDK1.5 以后追加的，基本可以完成 indexOf() 的功能</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s= &quot;Hello World&quot;;</div><div class="line">s.contains(&quot;World&quot;);</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">true</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/String/" rel="tag"># String</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/06/getTime-vs-now/" rel="next" title="getTime-vs-now">
+                <i class="fa fa-chevron-left"></i> getTime-vs-now
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/05/JavaScript-深拷贝-Benchmark/" itemprop="url">
-              
-                <span itemprop="name">JavaScript 深拷贝 Benchmark</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-05T13:33:24+08:00"
-              content="2017-03-05" >
-          03-05
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/04/JavaSciprt内置对象/" itemprop="url">
-              
-                <span itemprop="name">JavaScript内置对象</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-04T18:57:46+08:00"
-              content="2017-03-04" >
-          03-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/26/数据库范式/" itemprop="url">
-              
-                <span itemprop="name">数据库范式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-26T20:25:34+08:00"
-              content="2017-02-26" >
-          02-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -386,6 +451,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -405,8 +474,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -459,6 +537,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用处理方法"><span class="nav-number">1.</span> <span class="nav-text">常用处理方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#contains"><span class="nav-number">2.</span> <span class="nav-text">contains</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -572,11 +666,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
