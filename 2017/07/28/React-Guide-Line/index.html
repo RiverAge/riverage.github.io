@@ -1,0 +1,986 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Guide Line,React,Check Style," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="React 开发规范
+目录
+基本原则
+Class vs React.createClass vs stateless
+混入（Mixins）
+命名
+声明
+对齐
+引号
+空格
+属性
+Refs
+括号
+标签
+方法
+顺序
+isMounted
+参考
+
+基本原则
+1.1 每个文件只创建一个 React 组件。
+但是单个文件是可以存在多个无状态活纯组件（Stateless, or Pure, Components">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Guide-Line">
+<meta property="og:url" content="http://riverage.github.io/2017/07/28/React-Guide-Line/index.html">
+<meta property="og:site_name" content="RIMOU">
+<meta property="og:description" content="React 开发规范
+目录
+基本原则
+Class vs React.createClass vs stateless
+混入（Mixins）
+命名
+声明
+对齐
+引号
+空格
+属性
+Refs
+括号
+标签
+方法
+顺序
+isMounted
+参考
+
+基本原则
+1.1 每个文件只创建一个 React 组件。
+但是单个文件是可以存在多个无状态活纯组件（Stateless, or Pure, Components">
+<meta property="og:updated_time" content="2017-07-28T14:12:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-Guide-Line">
+<meta name="twitter:description" content="React 开发规范
+目录
+基本原则
+Class vs React.createClass vs stateless
+混入（Mixins）
+命名
+声明
+对齐
+引号
+空格
+属性
+Refs
+括号
+标签
+方法
+顺序
+isMounted
+参考
+
+基本原则
+1.1 每个文件只创建一个 React 组件。
+但是单个文件是可以存在多个无状态活纯组件（Stateless, or Pure, Components">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://riverage.github.io/2017/07/28/React-Guide-Line/"/>
+
+
+
+
+
+  <title>React-Guide-Line | RIMOU</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">RIMOU</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://riverage.github.io/2017/07/28/React-Guide-Line/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RIMOU">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React-Guide-Line</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T22:09:19+08:00">
+                2017-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="React-开发规范"><a href="#React-开发规范" class="headerlink" title="React 开发规范"></a>React 开发规范</h1><p><a name="toc"></a></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#basic-rules">基本原则</a></li>
+<li><a href="#class-vs-reactcreateclass-vs-stateless">Class vs <code>React.createClass</code> vs stateless</a></li>
+<li><a href="#mixins">混入（Mixins）</a></li>
+<li><a href="#naming">命名</a></li>
+<li><a href="#declaration">声明</a></li>
+<li><a href="#alignment">对齐</a></li>
+<li><a href="#quotes">引号</a></li>
+<li><a href="#spacing">空格</a></li>
+<li><a href="#props">属性</a></li>
+<li><a href="#refs">Refs</a></li>
+<li><a href="#parentheses">括号</a></li>
+<li><a href="#tags">标签</a></li>
+<li><a href="#methods">方法</a></li>
+<li><a href="#ordering">顺序</a></li>
+<li><a href="#ismounted"><code>isMounted</code></a></li>
+<li><a href="#resources">参考</a></li>
+</ol>
+<h2 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h2><ul>
+<li>1.1 每个文件只创建一个 React 组件。<ul>
+<li>但是单个文件是可以存在多个无状态活纯组件（<a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions" target="_blank" rel="external">Stateless, or Pure, Components</a> ）的。eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless" target="_blank" rel="external"><code>react/no-multi-comp</code></a>.</li>
+</ul>
+</li>
+<li>1.2 使用 JSX 语法。</li>
+<li>1.3 如果你不是从 JSX 中初始化应用的话，不要使用 <code>React.createElement</code></li>
+<li>1.4 不属于 state 的成员不要放在 state 中，区分好 state 和 成员变量的区别。</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(props) &#123;</div><div class="line">		<span class="keyword">this</span>.state = &#123;</div><div class="line">			<span class="attr">value</span>: <span class="string">'value'</span>,</div><div class="line">			<span class="attr">timer</span>: <span class="number">10</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	getTimer() &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.state.timer</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	render() &#123;</div><div class="line">		<span class="keyword">return</span> &lt;div&gt;&#123;this.state.value&#125;&lt;/div&gt;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(props) &#123;</div><div class="line">		<span class="keyword">this</span>.timer = <span class="number">10</span></div><div class="line">		<span class="keyword">this</span>.state = &#123;</div><div class="line">			<span class="attr">value</span>: <span class="string">'value'</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	getTimer() &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.timer</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	render() &#123;</div><div class="line">		<span class="keyword">return</span> &lt;div&gt;&#123;this.state.value&#125;&lt;/div&gt;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="class-vs-reactcreateclass-vs-stateless"></a></p>
+<h2 id="Class-vs-React-createClass-vs-stateless"><a href="#Class-vs-React-createClass-vs-stateless" class="headerlink" title="Class vs React.createClass vs stateless"></a>Class vs <code>React.createClass</code> vs stateless</h2><ul>
+<li>2.1 如果组件内部有状态（state）或 引用 （refs），使用 <code>class extends React.Component</code> 而不是 <code>React.createClass</code>. eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md" target="_blank" rel="external"><code>react/prefer-es6-class</code></a> <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md" target="_blank" rel="external"><code>react/prefer-stateless-function</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> Listing = React.createClass(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;&#123;this.state.hello&#125;&lt;/div&gt;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Listing</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;&#123;this.state.hello&#125;&lt;/div&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>2.2 如果组件没有状态（state）或 引用 （refs），使用普通的函数（不是箭头函数）而不是类：</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Listing</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;&#123;this.props.hello&#125;&lt;/div&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// bad (relying on function name inference is discouraged)</span></div><div class="line"><span class="keyword">const</span> Listing = <span class="function">(<span class="params">&#123; hello &#125;</span>) =&gt;</span> (</div><div class="line">  &lt;div&gt;&#123;hello&#125;&lt;/div&gt;</div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Listing</span>(<span class="params">&#123; hello &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;div&gt;&#123;hello&#125;&lt;/div&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="mixins"></a></p>
+<h2 id="混入（Mixins）"><a href="#混入（Mixins）" class="headerlink" title="混入（Mixins）"></a>混入（Mixins）</h2><ul>
+<li>3.1不要使用混入</li>
+</ul>
+<blockquote>
+<p>混入（Mixins）会引入隐式的依赖，导致命名冲突，并且程序的复杂度成滚雪球式的增加。大多数使用混入的场景都可以通过组件，高阶组件或工具模块的方式更好的完成。</p>
+</blockquote>
+<p><a href="#toc">目录</a><br><a name="naming"></a></p>
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><ul>
+<li><p>4.1 扩展名：使用 <code>.jsx</code> 作为 React 组件的扩展名。</p>
+</li>
+<li><p>4.2 文件名： 使用帕斯卡命名。E.g., <code>ReservationCard.jsx</code>，文件名也不要不要过长。</p>
+</li>
+<li><p>4.3 引用命名：使用帕斯卡命名 React 组件，使用驼峰命名法命名其实例。eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md" target="_blank" rel="external"><code>react/jsx-pascal-case</code></a></p>
+</li>
+<li><p>4.4 组件命名：使用文件名作为组件的名字。例如 ReservationCard.jsx 应该有一个命名 ReservationCard 的模块。但是对于目录根组件，使用 <code>index.jsx</code> 作为文件名，使用目录名作为组件的名字。</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">import</span> reservationCard <span class="keyword">from</span> <span class="string">'./ReservationCard'</span></div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">import</span> ReservationCard <span class="keyword">from</span> <span class="string">'./ReservationCard'</span></div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> ReservationItem = &lt;ReservationCard /&gt;</div><div class="line"></div><div class="line">// good</div><div class="line">const reservationItem = &lt;ReservationCard /&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>4.5 高阶组件命名：使用高阶组件名和传入的组件的名的组合作为生成的组件的名称。例如，对于高阶组件 <code>withFoo()</code>，当传入一个名为 <code>Bar</code> 的组件名时，应该产生一个名为 <code>witFoo(Bar)</code> 的组件名。</li>
+</ul>
+<blockquote>
+<p>一个组件的名字可能会在开发者工具亦或是错误信息中使用，一个能够明确表达其关系的值可以帮助人么理解到底发生了什么。</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">withFoo</span>(<span class="params">WrappedComponent</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">WithFoo</span>(<span class="params">props</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &lt;WrappedComponent &#123;...props&#125; foo /&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">export default function withFoo(WrappedComponent) &#123;</div><div class="line">  function WithFoo(props) &#123;</div><div class="line">    return &lt;WrappedComponent &#123;...props&#125; foo /&gt;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  const wrappedComponentName = WrappedComponent.displayName</div><div class="line">    || WrappedComponent.name</div><div class="line">    || 'Component'</div><div class="line"></div><div class="line">  WithFoo.displayName = `withFoo($&#123;wrappedComponentName&#125;)`</div><div class="line">  return WithFoo</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>4.6 属性命名：避免使用DOM相关的属性来用作其他的用途。</li>
+</ul>
+<blockquote>
+<p>像 <code>style</code> 和 <code>className</code> 这样的属性名都有特殊的含义，为这样的 API 创建子集会是程序的代码可读性和维护性降低，并可能造成 BUG。</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;MyComponent style=<span class="string">"fancy"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;MyComponent variant=<span class="string">"fancy"</span> /&gt;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="declaration"></a></p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li>5.1 不要使用 <code>displayName</code> 来命名组件，通过引用命名组件。</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.createClass(&#123;</div><div class="line">  <span class="attr">displayName</span>: <span class="string">'ReservationCard'</span>,</div><div class="line">  <span class="comment">// stuff goes here</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ReservationCard</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="alignment"></a></p>
+<h2 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h2><ul>
+<li>6.1 遵循一下的 JSX 语法对齐方式。eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md" target="_blank" rel="external"><code>react/jsx-closing-bracket-location</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo superLongParam=<span class="string">"bar"</span></div><div class="line">     anotherSuperLongParam=<span class="string">"baz"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo</div><div class="line">  superLongParam=<span class="string">"bar"</span></div><div class="line">  anotherSuperLongParam=<span class="string">"baz"</span></div><div class="line">/&gt;</div><div class="line"></div><div class="line"><span class="comment">// if props fit in one line then keep it on the same line</span></div><div class="line">&lt;Foo bar=<span class="string">"bar"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// children get indented normally</span></div><div class="line">&lt;Foo</div><div class="line">  superLongParam=<span class="string">"bar"</span></div><div class="line">  anotherSuperLongParam=<span class="string">"baz"</span></div><div class="line">&gt;</div><div class="line">  &lt;Quux /&gt;</div><div class="line">&lt;/Foo&gt;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="quotes"></a></p>
+<h2 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h2><ul>
+<li>7.1 对 JSX 的属性使用双引号<code>&quot;</code>引用，但是其余的使用单引号 <code>&#39;</code>。eslint： <a href="http://eslint.org/docs/rules/jsx-quotes" target="_blank" rel="external"><code>jsx-quotes</code></a></li>
+</ul>
+<blockquote>
+<p>HTML属性也是用双引号, 因此JSX的属性也遵循此约定。</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo bar=<span class="string">'bar'</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo bar=<span class="string">"bar"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo style=&#123;&#123; <span class="attr">left</span>: <span class="string">"20px"</span> &#125;&#125; /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo style=&#123;&#123; <span class="attr">left</span>: <span class="string">'20px'</span> &#125;&#125; /&gt;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="spacing"></a></p>
+<h2 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h2><ul>
+<li>8.1 在自闭合标签处添加一个空格。eslint: <a href="http://eslint.org/docs/rules/no-multi-spaces" target="_blank" rel="external"><code>no-multi-spaces</code></a>, <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md" target="_blank" rel="external"><code>react/jsx-tag-spacing</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo/&gt;</div><div class="line"></div><div class="line"><span class="comment">// very bad</span></div><div class="line">&lt;Foo                 /&gt;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo</div><div class="line"> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo /&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>8.2 JSX 大括号的起始和结束为止不要添加空格。eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md" target="_blank" rel="external"><code>react/jsx-curly-spacing</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo bar=&#123; baz &#125; /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo bar=&#123;baz&#125; /&gt;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="props"></a></p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ul>
+<li>9.1 属性命名使用驼峰命名。</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo</div><div class="line">  UserName=<span class="string">"hello"</span></div><div class="line">  phone_number=&#123;<span class="number">12345678</span>&#125;</div><div class="line">/&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo</div><div class="line">  userName=<span class="string">"hello"</span></div><div class="line">  phoneNumber=&#123;<span class="number">12345678</span>&#125;</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>9.2 对于值为 true 的属性，忽略其值。 eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md" target="_blank" rel="external"><code>react/jsx-boolean-value</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo</div><div class="line">  hidden=&#123;<span class="literal">true</span>&#125;</div><div class="line">/&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo</div><div class="line">  hidden</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>9.3 <code>&lt;img&gt;</code> 标签要包含 <code>alt</code> 属性。如果图片是 presentational 的，<code>alt</code> 是可以被置为空或 <code>&lt;img&gt;</code> 必须有 <code>role=&quot;presentation</code>。eslint： <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md" target="_blank" rel="external"><code>jsx-a11y/alt-text</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;img src=<span class="string">"hello.jpg"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;img src=<span class="string">"hello.jpg"</span> alt=<span class="string">"Me waving hello"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;img src=<span class="string">"hello.jpg"</span> alt=<span class="string">""</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;img src=<span class="string">"hello.jpg"</span> role=<span class="string">"presentation"</span> /&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>9.4 不要在 <code>&lt;img&gt;</code> 的 <code>alt</code> 属性中使用像 “image”, “photo”, “picture” 等值。eslint： <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md" target="_blank" rel="external"><code>jsx-a11y/img-redundant-alt</code></a></li>
+</ul>
+<blockquote>
+<p>屏幕助读器已经把 img 标签标注为图片了, 所以没有必要再在 alt 里说明了。</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;img src=<span class="string">"hello.jpg"</span> alt=<span class="string">"Picture of me waving hello"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;img src=<span class="string">"hello.jpg"</span> alt=<span class="string">"Me waving hello"</span> /&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>9.5 使用有效正确的 aria role属性值 <a href="https://www.w3.org/TR/wai-aria/roles#role_definitions" target="_blank" rel="external">ARIA roles</a>. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md" target="_blank" rel="external"><code>jsx-a11y/aria-role</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad - not an ARIA role</span></div><div class="line">&lt;div role=<span class="string">"datepicker"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// bad - abstract ARIA role</span></div><div class="line">&lt;div role=<span class="string">"range"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;div role=<span class="string">"button"</span> /&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>9.6 不要在元素上使用 <code>accessKey</code>。 eslint： <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md" target="_blank" rel="external"><code>jsx-a11y/no-access-key</code></a></li>
+</ul>
+<blockquote>
+<p> 屏幕助读器在键盘快捷键与键盘命令时造成的不统一性会导致阅读性更加复杂。</p>
+</blockquote>
+<ul>
+<li>9.7 不要使用数组的索引作为 <code>key</code> 属性的值。使用唯一的 ID 最为其值。 (<a href="https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318" target="_blank" rel="external">why?</a>)</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">// bad</span></div><div class="line">  &#123;todos.map(<span class="function">(<span class="params">todo, index</span>) =&gt;</span></div><div class="line">&lt;Todo</div><div class="line">  &#123;...todo&#125;</div><div class="line">  key=&#123;index&#125;</div><div class="line">/&gt;</div><div class="line">  )&#125;</div><div class="line"></div><div class="line">  <span class="comment">// good</span></div><div class="line">  &#123;todos.map(<span class="function"><span class="params">todo</span> =&gt;</span> (</div><div class="line">&lt;Todo</div><div class="line">  &#123;...todo&#125;</div><div class="line">  key=&#123;todo.id&#125;</div><div class="line">/&gt;</div><div class="line">  ))&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>9.8 对于非必需的属性明确指定其默认值。</li>
+</ul>
+<blockquote>
+<p>propTypes 可以作为模块的文档说明， 并且声明 defaultProps 的话意味着阅读代码的人不需要去假设一些默认值。更重要的是， 显示的声明默认属性可以让你的模块跳过属性类型的检查。</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SFC</span>(<span class="params">&#123; foo, bar, children &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;div&gt;&#123;foo&#125;&#123;bar&#125;&#123;children&#125;&lt;/div&gt;</div><div class="line">&#125;</div><div class="line">SFC.propTypes = &#123;</div><div class="line">  <span class="attr">foo</span>: PropTypes.number.isRequired,</div><div class="line">  <span class="attr">bar</span>: PropTypes.string,</div><div class="line">  <span class="attr">children</span>: PropTypes.node,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SFC</span>(<span class="params">&#123; foo, bar, children &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;div&gt;&#123;foo&#125;&#123;bar&#125;&#123;children&#125;&lt;/div&gt;</div><div class="line">&#125;</div><div class="line">SFC.propTypes = &#123;</div><div class="line">  <span class="attr">foo</span>: PropTypes.number.isRequired,</div><div class="line">  <span class="attr">bar</span>: PropTypes.string,</div><div class="line">  <span class="attr">children</span>: PropTypes.node,</div><div class="line">&#125;</div><div class="line">SFC.defaultProps = &#123;</div><div class="line">  <span class="attr">bar</span>: <span class="string">''</span>,</div><div class="line">  <span class="attr">children</span>: <span class="literal">null</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="refs"></a></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><p>在 ref 中使用回调。 eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md" target="_blank" rel="external"><code>react/no-string-refs</code></a></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo</div><div class="line">  ref=<span class="string">"myRef"</span></div><div class="line">/&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo</div><div class="line">  ref=&#123;(ref) =&gt; &#123; <span class="keyword">this</span>.myRef = ref &#125;&#125;</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="parentheses"></a></p>
+<h2 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h2><ul>
+<li>10.1 将多行的 JSX 标签写在小括号（<code>()</code>）中。eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md" target="_blank" rel="external"><code>react/jsx-wrap-multilines</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">render() &#123;</div><div class="line">  <span class="keyword">return</span> &lt;MyComponent className="long body" foo="bar"&gt;</div><div class="line">           &lt;MyChild /&gt;</div><div class="line">         &lt;/MyComponent&gt;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">render() &#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;MyComponent className="long body" foo="bar"&gt;</div><div class="line">      &lt;MyChild /&gt;</div><div class="line">    &lt;/MyComponent&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// good, when single line</span></div><div class="line">render() &#123;</div><div class="line">  <span class="keyword">const</span> body = &lt;div&gt;hello&lt;/div&gt;</div><div class="line">  <span class="keyword">return</span> &lt;MyComponent&gt;&#123;body&#125;&lt;/MyComponent&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="tags"></a></p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li>11.1 对于没有子节点的使用自关闭标签。 eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md" target="_blank" rel="external"><code>react/self-closing-comp</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo className=<span class="string">"stuff"</span>&gt;&lt;/Foo&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo className=<span class="string">"stuff"</span> /&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>11.2 如果组件有多个属性，关闭标签在新的一行中。eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md" target="_blank" rel="external"><code>react/jsx-closing-bracket-location</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">&lt;Foo</div><div class="line">  bar=<span class="string">"bar"</span></div><div class="line">  baz=<span class="string">"baz"</span> /&gt;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">&lt;Foo</div><div class="line">  bar=<span class="string">"bar"</span></div><div class="line">  baz=<span class="string">"baz"</span></div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="methods"></a></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>12.1 使用箭头函数来获取本地变量。</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ItemList</span>(<span class="params">props</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;ul&gt;</div><div class="line">      &#123;props.items.map((item, index) =&gt; (</div><div class="line">        &lt;Item</div><div class="line">          key=&#123;item.key&#125;</div><div class="line">          onClick=&#123;() =&gt; doSomethingWith(item.name, index)&#125;</div><div class="line">        /&gt;</div><div class="line">      ))&#125;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  )</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>12.2 在构造函数中绑定 <code>render</code> 使用的事件处理方法。eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md" target="_blank" rel="external"><code>react/jsx-no-bind</code></a></li>
+</ul>
+<blockquote>
+<p>每次 <code>render</code> 过程中， 都会再次调用 <code>bind</code> 都会新建一个新的函数，造成资源浪费。</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  onClickDiv() &#123;</div><div class="line">    <span class="comment">// do stuff</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> &lt;div onClick=&#123;this.onClickDiv.bind(this)&#125; /&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">class extends React.Component &#123;</div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props)</div><div class="line"></div><div class="line">    this.onClickDiv = this.onClickDiv.bind(this)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onClickDiv() &#123;</div><div class="line">    // do stuff</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return &lt;div onClick=&#123;this.onClickDiv&#125; /&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>12.3 在 React 模块中，不要对内部方式使用下划线。</li>
+</ul>
+<blockquote>
+<p>下划线前缀在其他语言中优势作为一种惯例表示为私有的。但是与其他语言不同的是 JavaScript 没有原生的支持私有这一概念，所有的东西都是公有的。尽管通过下划线的方式试图将其私有化，但是事实是任何的属性（是否以下划线开始）都是公共的。 参照关于此进一步的讨论 <a href="https://github.com/airbnb/javascript/issues/1024" target="_blank" rel="external">#1024</a>  <a href="https://github.com/airbnb/javascript/issues/490" target="_blank" rel="external">#490</a></p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">React.createClass(&#123;</div><div class="line">  _onClickSubmit() &#123;</div><div class="line">    <span class="comment">// do stuff</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="comment">// other stuff</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  onClickSubmit() &#123;</div><div class="line">    <span class="comment">// do stuff</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// other stuff</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>12.4 在 <code>render</code> 方法中一定要返回值。eslint：<a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md" target="_blank" rel="external"><code>react/require-render-return</code></a></li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">render() &#123;</div><div class="line">  (&lt;div /&gt;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">render() &#123;</div><div class="line">  return (&lt;div /&gt;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="#toc">目录</a><br><a name="ordering"></a></p>
+<h2 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h2><ul>
+<li><p>13.1 <code>class extends React.Component</code> 的生命周期函数:</p>
+<ol>
+<li>可选的 <code>static</code> 方法</li>
+<li><code>constructor</code></li>
+<li><code>getChildContext</code></li>
+<li><code>componentWillMount</code></li>
+<li><code>componentDidMount</code></li>
+<li><code>componentWillReceiveProps</code></li>
+<li><code>shouldComponentUpdate</code></li>
+<li><code>componentWillUpdate</code></li>
+<li><code>componentDidUpdate</code></li>
+<li><code>componentWillUnmount</code></li>
+<li><em>clickHandlers or eventHandlers</em> like <code>onClickSubmit()</code> or <code>onChangeDescription()</code></li>
+<li><em>getter methods for <code>render</code></em> like <code>getSelectReason()</code> or <code>getFooterContent()</code></li>
+<li><em>optional render methods</em> like <code>renderNavigation()</code> or <code>renderProfilePicture()</code></li>
+<li><code>render</code></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>13.2 如何定义 <code>propTypes</code> <code>defaultProps</code> <code>contextTypes</code>，etc…</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> propTypes = &#123;</div><div class="line">  <span class="attr">id</span>: PropTypes.number.isRequired,</div><div class="line">  <span class="attr">url</span>: PropTypes.string.isRequired,</div><div class="line">  <span class="attr">text</span>: PropTypes.string,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> defaultProps = &#123;</div><div class="line">  <span class="attr">text</span>: <span class="string">'Hello World'</span>,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Link</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> methodsAreOk() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> &lt;a href=&#123;this.props.url&#125; data-id=&#123;this.props.id&#125;&gt;&#123;this.props.text&#125;&lt;/a&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Link.propTypes = propTypes</div><div class="line">Link.defaultProps = defaultProps</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Link</div></pre></td></tr></table></figure>
+<ul>
+<li><p>13.2 <code>React.createClass</code> 的生命周期函数，与使用class稍有不同: eslint： <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md" target="_blank" rel="external"><code>react/sort-comp</code></a></p>
+<ol>
+<li><code>displayName</code></li>
+<li><code>propTypes</code></li>
+<li><code>contextTypes</code></li>
+<li><code>childContextTypes</code></li>
+<li><code>mixins</code></li>
+<li><code>statics</code></li>
+<li><code>defaultProps</code></li>
+<li><code>getDefaultProps</code></li>
+<li><code>getInitialState</code></li>
+<li><code>getChildContext</code></li>
+<li><code>componentWillMount</code></li>
+<li><code>componentDidMount</code></li>
+<li><code>componentWillReceiveProps</code></li>
+<li><code>shouldComponentUpdate</code></li>
+<li><code>componentWillUpdate</code></li>
+<li><code>componentDidUpdate</code></li>
+<li><code>componentWillUnmount</code></li>
+<li><em>clickHandlers or eventHandlers</em> like <code>onClickSubmit()</code> or <code>onChangeDescription()</code></li>
+<li><em>getter methods for <code>render</code></em> like <code>getSelectReason()</code> or <code>getFooterContent()</code></li>
+<li><em>optional render methods</em> like <code>renderNavigation()</code> or <code>renderProfilePicture()</code></li>
+<li><code>render</code></li>
+</ol>
+</li>
+</ul>
+<p><a href="#toc">目录</a><br><a name="ismounted"></a> </p>
+<h2 id="isMounted"><a href="#isMounted" class="headerlink" title="isMounted"></a>isMounted</h2><ul>
+<li>14.1 不要使用 <code>isMounted</code>。eslint：<a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md" target="_blank" rel="external"><code>react/no-is-mounted</code></a></li>
+</ul>
+<blockquote>
+<p><code>isMounted</code> 是反设计模式的并且在使用 ES6 类时是不可用的。官方也正在逐渐弃用它。</p>
+</blockquote>
+<p><a href="#toc">目录</a><br><a name="resources"></a> </p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb JavaScript Style GuideLine</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Guide-Line/" rel="tag"># Guide Line</a>
+          
+            <a href="/tags/React/" rel="tag"># React</a>
+          
+            <a href="/tags/Check-Style/" rel="tag"># Check Style</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/25/Java-String/" rel="next" title="Java String">
+                <i class="fa fa-chevron-left"></i> Java String
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/28/JavaScript-Guide-Line/" rel="prev" title="JavaScript-Guide-Line">
+                JavaScript-Guide-Line <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="梦" />
+          <p class="site-author-name" itemprop="name">梦</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-开发规范"><span class="nav-number">1.</span> <span class="nav-text">React 开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本原则"><span class="nav-number">1.2.</span> <span class="nav-text">基本原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-vs-React-createClass-vs-stateless"><span class="nav-number">1.3.</span> <span class="nav-text">Class vs React.createClass vs stateless</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混入（Mixins）"><span class="nav-number">1.4.</span> <span class="nav-text">混入（Mixins）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名"><span class="nav-number">1.5.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">1.6.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐"><span class="nav-number">1.7.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引号"><span class="nav-number">1.8.</span> <span class="nav-text">引号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空格"><span class="nav-number">1.9.</span> <span class="nav-text">空格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">1.10.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refs"><span class="nav-number">1.11.</span> <span class="nav-text">Refs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#括号"><span class="nav-number">1.12.</span> <span class="nav-text">括号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">1.13.</span> <span class="nav-text">标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.14.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序"><span class="nav-number">1.15.</span> <span class="nav-text">顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isMounted"><span class="nav-number">1.16.</span> <span class="nav-text">isMounted</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.17.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梦</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
