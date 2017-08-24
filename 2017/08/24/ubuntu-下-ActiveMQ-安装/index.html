@@ -1,0 +1,770 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,ActiveMQ," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Goal本文将介绍如何在 ubuntu 下安装 ActiveMQ
+准备ubuntu 14.04.5 LTS
+更新系统1vagrant@ubuntu:~$ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get -y upgrade
+安装 Oracle JDK
+添加源
+
+1vagrant@ubuntu:~$ sudo add-apt-repository ppa:we">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu 下 ActiveMQ 安装">
+<meta property="og:url" content="http://riverage.github.io/2017/08/24/ubuntu-下-ActiveMQ-安装/index.html">
+<meta property="og:site_name" content="RIMOU">
+<meta property="og:description" content="Goal本文将介绍如何在 ubuntu 下安装 ActiveMQ
+准备ubuntu 14.04.5 LTS
+更新系统1vagrant@ubuntu:~$ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get -y upgrade
+安装 Oracle JDK
+添加源
+
+1vagrant@ubuntu:~$ sudo add-apt-repository ppa:we">
+<meta property="og:updated_time" content="2017-08-24T15:26:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu 下 ActiveMQ 安装">
+<meta name="twitter:description" content="Goal本文将介绍如何在 ubuntu 下安装 ActiveMQ
+准备ubuntu 14.04.5 LTS
+更新系统1vagrant@ubuntu:~$ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get -y upgrade
+安装 Oracle JDK
+添加源
+
+1vagrant@ubuntu:~$ sudo add-apt-repository ppa:we">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://riverage.github.io/2017/08/24/ubuntu-下-ActiveMQ-安装/"/>
+
+
+
+
+
+  <title>ubuntu 下 ActiveMQ 安装 | RIMOU</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">RIMOU</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://riverage.github.io/2017/08/24/ubuntu-下-ActiveMQ-安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RIMOU">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ubuntu 下 ActiveMQ 安装</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T22:12:45+08:00">
+                2017-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h4><p>本文将介绍如何在 ubuntu 下安装 ActiveMQ</p>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>ubuntu 14.04.5 LTS</p>
+<h4 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo apt-get update &amp;&amp; sudo apt-get -y upgrade</div></pre></td></tr></table></figure>
+<h4 id="安装-Oracle-JDK"><a href="#安装-Oracle-JDK" class="headerlink" title="安装 Oracle JDK"></a>安装 Oracle JDK</h4><ul>
+<li>添加源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo add-apt-repository ppa:webupd8team/java</div></pre></td></tr></table></figure>
+<ul>
+<li>更新仓库元数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo apt-get update</div></pre></td></tr></table></figure>
+<ul>
+<li>安装 Oracle JDK 8</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$  apt-get -y install oracle-java8-installer</div></pre></td></tr></table></figure>
+<blockquote>
+<p>弹出的同意条款中选择 <code>YES</code></p>
+</blockquote>
+<ul>
+<li>验证 Java 环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ java -version</div><div class="line">java version &quot;1.8.0_144&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_144-b01)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)</div><div class="line">vagrant@ubuntu:~$</div></pre></td></tr></table></figure>
+<h4 id="安装-ActiveMQ"><a href="#安装-ActiveMQ" class="headerlink" title="安装 ActiveMQ"></a>安装 ActiveMQ</h4><ul>
+<li>下载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ curl https://archive.apache.org/dist/activemq/5.14.3/apache-activemq-5.14.3-bin.tar.gz -o apache-activemq-5.14.3-bin.tar.gz</div></pre></td></tr></table></figure>
+<ul>
+<li>解压</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ tar xzf apache-activemq-5.14.3-bin.tar.gz</div></pre></td></tr></table></figure>
+<ul>
+<li>将目标文件夹移动到 <code>/opt</code> 目录下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo mv apache-activemq-5.14.3 /opt/activemq</div></pre></td></tr></table></figure>
+<ul>
+<li>添加 activemq 的组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo addgroup --quiet --system activemq</div></pre></td></tr></table></figure>
+<ul>
+<li>添加 activemq 用户</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo adduser --quiet --system --ingroup activemq --no-create-home --disabled-password activemq</div></pre></td></tr></table></figure>
+<ul>
+<li>在 <code>/etc/passwd</code> 修改 <code>activemq</code> 用户的根目录和组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo usermod -c &quot;ActiveMQ Broker&quot; -d /opt/activemq -g activemq activemq</div><div class="line">``` </div><div class="line"></div><div class="line">- 修改 `activemq` 的所有权</div></pre></td></tr></table></figure>
+<p>vagrant@ubuntu:~$ sudo chmown -R activemq:activemq /opt/activemq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 修改 `activemq` 的访问权限</div></pre></td></tr></table></figure></p>
+<p>vagrant@ubuntu:~$ sudo chown -R activemq:activemq /opt/activemq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 配置 ActiveMQ</div><div class="line"></div><div class="line">- 创建 ActiveMQ 配置文件</div></pre></td></tr></table></figure></p>
+<p>vagrant@ubuntu:~$ sudo cp /opt/activemq/bin/env /etc/default/activemq<br>vagrant@ubuntu:~$ sudo chown root:root /etc/default/activemq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 编辑配置文件</div><div class="line">	- 修改 ActiveMQ 的工作目录</div></pre></td></tr></table></figure></p>
+<pre><code>ACTIVEMQ_HOME=&quot;/opt/activemq&quot;
+ACTIVEMQ_BASE=&quot;$ACTIVEMQ_HOME&quot;
+ACTIVEMQ_CONF=&quot;$ACTIVEMQ_BASE/conf&quot;
+ACTIVEMQ_DATA=&quot;$ACTIVEMQ_BASE/data&quot;
+ACTIVEMQ_TMP=&quot;$ACTIVEMQ_BASE/tmp&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 修改启动用户</div></pre></td></tr></table></figure>
+
+ACTIVEMQ_USER=&quot;activemq&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 修改 `pid` 文件位置</div></pre></td></tr></table></figure>
+
+ACTIVEMQ_PIDFILE=&quot;$ACTIVEMQ_DATA/activemq.pid&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 创建启动脚本</div></pre></td></tr></table></figure>
+
+ vagrant@ubuntu:~$ sudo cp bin/activemq /etc/init.d
+ vagrant@ubuntu:~$ sudo chown root:root /etc/init.d/activemq
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 启动 ActiveMQ</div></pre></td></tr></table></figure>
+</code></pre><p>vagrant@ubuntu:~$ sudo service activemq start<br>INFO: Loading ‘/etc/default/activemq’<br>INFO: Using java ‘/usr/bin/java’<br>INFO: Starting - inspect logfiles specified in logging.properties and log4j.properties to get details<br>INFO: changing to user ‘activemq’ to invoke java<br>INFO: pidfile created : ‘/opt/activemq/data/activemq.pid’ (pid ‘3877’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 验证</div><div class="line"></div><div class="line">	- AcitveMQ 默认的端口号是 `61616` 使用 `netstat` 命令查看 ActiveMQ 是否监听该端口</div></pre></td></tr></table></figure></p>
+<pre><code>vagrant@ubuntu:~$ sudo netstat -naptu | grep 61616
+tcp6       0      0 :::61616                :::*                    LISTEN      3540/java
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- ActiveMQ 在 `81616` 上运行 WEB 控制台</div></pre></td></tr></table></figure>
+
+ vagrant@ubuntu:~$ sudo netstat -naptu | grep 8161
+</code></pre><p>tcp6       0      0 :::8161                 :::*                    LISTEN      3540/java<br>     ```</p>
+<pre><code>- 可以使用 `http://ip:8161` 访问 ActiveMQ 的控制台，其中 ip 为 ActiveMQ 所在的 ip 地址。
+</code></pre><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://hostpresto.com/community/tutorials/how-to-install-apache-activemq-on-ubuntu-14-04/" target="_blank" rel="external">How to Install Apache ActiveMQ on Ubuntu 14.04</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/ActiveMQ/" rel="tag"># ActiveMQ</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/31/Java-基础新特性/" rel="next" title="Java 基础新特性">
+                <i class="fa fa-chevron-left"></i> Java 基础新特性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="梦" />
+          <p class="site-author-name" itemprop="name">梦</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Goal"><span class="nav-number">1.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新系统"><span class="nav-number">3.</span> <span class="nav-text">更新系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-Oracle-JDK"><span class="nav-number">4.</span> <span class="nav-text">安装 Oracle JDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-ActiveMQ"><span class="nav-number">5.</span> <span class="nav-text">安装 ActiveMQ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梦</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
