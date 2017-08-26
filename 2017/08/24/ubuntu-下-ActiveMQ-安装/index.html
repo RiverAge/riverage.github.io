@@ -111,7 +111,7 @@
 添加源
 
 1vagrant@ubuntu:~$ sudo add-apt-repository ppa:we">
-<meta property="og:updated_time" content="2017-08-24T15:26:45.000Z">
+<meta property="og:updated_time" content="2017-08-26T06:25:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu 下 ActiveMQ 安装">
 <meta name="twitter:description" content="Goal本文将介绍如何在 ubuntu 下安装 ActiveMQ
@@ -382,27 +382,39 @@
 <ul>
 <li>在 <code>/etc/passwd</code> 修改 <code>activemq</code> 用户的根目录和组</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo usermod -c &quot;ActiveMQ Broker&quot; -d /opt/activemq -g activemq activemq</div><div class="line">``` </div><div class="line"></div><div class="line">- 修改 `activemq` 的所有权</div></pre></td></tr></table></figure>
-<p>vagrant@ubuntu:~$ sudo chmown -R activemq:activemq /opt/activemq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 修改 `activemq` 的访问权限</div></pre></td></tr></table></figure></p>
-<p>vagrant@ubuntu:~$ sudo chown -R activemq:activemq /opt/activemq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 配置 ActiveMQ</div><div class="line"></div><div class="line">- 创建 ActiveMQ 配置文件</div></pre></td></tr></table></figure></p>
-<p>vagrant@ubuntu:~$ sudo cp /opt/activemq/bin/env /etc/default/activemq<br>vagrant@ubuntu:~$ sudo chown root:root /etc/default/activemq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 编辑配置文件</div><div class="line">	- 修改 ActiveMQ 的工作目录</div></pre></td></tr></table></figure></p>
-<pre><code>ACTIVEMQ_HOME=&quot;/opt/activemq&quot;
-ACTIVEMQ_BASE=&quot;$ACTIVEMQ_HOME&quot;
-ACTIVEMQ_CONF=&quot;$ACTIVEMQ_BASE/conf&quot;
-ACTIVEMQ_DATA=&quot;$ACTIVEMQ_BASE/data&quot;
-ACTIVEMQ_TMP=&quot;$ACTIVEMQ_BASE/tmp&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 修改启动用户</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo usermod -c &quot;ActiveMQ Broker&quot; -d /opt/activemq -g activemq activemq</div></pre></td></tr></table></figure>
+<ul>
+<li>修改 <code>activemq</code> 的所有权</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo chmown -R activemq:activemq /opt/activemq</div></pre></td></tr></table></figure>
+<ul>
+<li>修改 <code>activemq</code> 的访问权限</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo chown -R activemq:activemq /opt/activemq</div></pre></td></tr></table></figure>
+<h4 id="配置-ActiveMQ"><a href="#配置-ActiveMQ" class="headerlink" title="配置 ActiveMQ"></a>配置 ActiveMQ</h4><ul>
+<li>创建 ActiveMQ 配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo cp /opt/activemq/bin/env /etc/default/activemq</div><div class="line">vagrant@ubuntu:~$ sudo chown root:root /etc/default/activemq</div></pre></td></tr></table></figure>
+<ul>
+<li><p>编辑配置文件</p>
+<ul>
+<li><p>修改 ActiveMQ 的工作目录</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_HOME=&quot;/opt/activemq&quot;</div><div class="line">ACTIVEMQ_BASE=&quot;$ACTIVEMQ_HOME&quot;</div><div class="line">ACTIVEMQ_CONF=&quot;$ACTIVEMQ_BASE/conf&quot;</div><div class="line">ACTIVEMQ_DATA=&quot;$ACTIVEMQ_BASE/data&quot;</div><div class="line">ACTIVEMQ_TMP=&quot;$ACTIVEMQ_BASE/tmp&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改启动用户</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_USER=&quot;activemq&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 修改 `pid` 文件位置
 
-ACTIVEMQ_USER=&quot;activemq&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 修改 `pid` 文件位置</div></pre></td></tr></table></figure>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_PIDFILE=&quot;$ACTIVEMQ_DATA/activemq.pid&quot;</div></pre></td></tr></table></figure>
 
-ACTIVEMQ_PIDFILE=&quot;$ACTIVEMQ_DATA/activemq.pid&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 创建启动脚本</div></pre></td></tr></table></figure>
 
- vagrant@ubuntu:~$ sudo cp bin/activemq /etc/init.d
- vagrant@ubuntu:~$ sudo chown root:root /etc/init.d/activemq
+- 创建启动脚本
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 启动 ActiveMQ</div></pre></td></tr></table></figure>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">		 vagrant@ubuntu:~$ sudo cp bin/activemq /etc/init.d</div><div class="line">		 vagrant@ubuntu:~$ sudo chown root:root /etc/init.d/activemq</div><div class="line">		 </div><div class="line">		```	</div><div class="line"></div><div class="line">- 启动 ActiveMQ</div></pre></td></tr></table></figure>
 </code></pre><p>vagrant@ubuntu:~$ sudo service activemq start<br>INFO: Loading ‘/etc/default/activemq’<br>INFO: Using java ‘/usr/bin/java’<br>INFO: Starting - inspect logfiles specified in logging.properties and log4j.properties to get details<br>INFO: changing to user ‘activemq’ to invoke java<br>INFO: pidfile created : ‘/opt/activemq/data/activemq.pid’ (pid ‘3877’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 验证</div><div class="line"></div><div class="line">	- AcitveMQ 默认的端口号是 `61616` 使用 `netstat` 命令查看 ActiveMQ 是否监听该端口</div></pre></td></tr></table></figure></p>
 <pre><code>vagrant@ubuntu:~$ sudo netstat -naptu | grep 61616
 tcp6       0      0 :::61616                :::*                    LISTEN      3540/java
@@ -584,7 +596,7 @@ tcp6       0      0 :::61616                :::*                    LISTEN      
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Goal"><span class="nav-number">1.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新系统"><span class="nav-number">3.</span> <span class="nav-text">更新系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-Oracle-JDK"><span class="nav-number">4.</span> <span class="nav-text">安装 Oracle JDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-ActiveMQ"><span class="nav-number">5.</span> <span class="nav-text">安装 ActiveMQ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Goal"><span class="nav-number">1.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新系统"><span class="nav-number">3.</span> <span class="nav-text">更新系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-Oracle-JDK"><span class="nav-number">4.</span> <span class="nav-text">安装 Oracle JDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-ActiveMQ"><span class="nav-number">5.</span> <span class="nav-text">安装 ActiveMQ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-ActiveMQ"><span class="nav-number">6.</span> <span class="nav-text">配置 ActiveMQ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
