@@ -375,39 +375,36 @@
 <li>修改 <code>activemq</code> 的访问权限</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo chown -R activemq:activemq /opt/activemq</div></pre></td></tr></table></figure>
-<h4 id="配置-ActiveMQ"><a href="#配置-ActiveMQ" class="headerlink" title="配置 ActiveMQ"></a>配置 ActiveMQ</h4><ul>
-<li>创建 ActiveMQ 配置文件</li>
+<h4 id="配置-ActiveMQ"><a href="#配置-ActiveMQ" class="headerlink" title="配置 ActiveMQ"></a>配置 ActiveMQ</h4><h5 id="创建-ActiveMQ-配置文件"><a href="#创建-ActiveMQ-配置文件" class="headerlink" title="创建 ActiveMQ 配置文件"></a>创建 ActiveMQ 配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo cp /opt/activemq/bin/env /etc/default/activemq</div><div class="line">vagrant@ubuntu:~$ sudo chown root:root /etc/default/activemq</div></pre></td></tr></table></figure>
+<h5 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h5><ul>
+<li>修改 ActiveMQ 的工作目录</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo cp /opt/activemq/bin/env /etc/default/activemq</div><div class="line">vagrant@ubuntu:~$ sudo chown root:root /etc/default/activemq</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_HOME=&quot;/opt/activemq&quot;</div><div class="line">ACTIVEMQ_BASE=&quot;$ACTIVEMQ_HOME&quot;</div><div class="line">ACTIVEMQ_CONF=&quot;$ACTIVEMQ_BASE/conf&quot;</div><div class="line">ACTIVEMQ_DATA=&quot;$ACTIVEMQ_BASE/data&quot;</div><div class="line">ACTIVEMQ_TMP=&quot;$ACTIVEMQ_BASE/tmp&quot;</div></pre></td></tr></table></figure>
 <ul>
-<li><p>编辑配置文件</p>
+<li>修改启动用户</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_USER=&quot;activemq&quot;</div></pre></td></tr></table></figure>
 <ul>
-<li><p>修改 ActiveMQ 的工作目录</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_HOME=&quot;/opt/activemq&quot;</div><div class="line">ACTIVEMQ_BASE=&quot;$ACTIVEMQ_HOME&quot;</div><div class="line">ACTIVEMQ_CONF=&quot;$ACTIVEMQ_BASE/conf&quot;</div><div class="line">ACTIVEMQ_DATA=&quot;$ACTIVEMQ_BASE/data&quot;</div><div class="line">ACTIVEMQ_TMP=&quot;$ACTIVEMQ_BASE/tmp&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改启动用户</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_USER=&quot;activemq&quot;</div></pre></td></tr></table></figure>
-</li>
+<li>修改 <code>pid</code> 文件位置</li>
 </ul>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_PIDFILE=&quot;$ACTIVEMQ_DATA/activemq.pid&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li>创建启动脚本</li>
 </ul>
-<pre><code>- 修改 `pid` 文件位置
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ACTIVEMQ_PIDFILE=&quot;$ACTIVEMQ_DATA/activemq.pid&quot;</div></pre></td></tr></table></figure>
-
-
-- 创建启动脚本
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">		 vagrant@ubuntu:~$ sudo cp bin/activemq /etc/init.d</div><div class="line">		 vagrant@ubuntu:~$ sudo chown root:root /etc/init.d/activemq</div><div class="line">		 </div><div class="line">		```	</div><div class="line"></div><div class="line">- 启动 ActiveMQ</div></pre></td></tr></table></figure>
-</code></pre><p>vagrant@ubuntu:~$ sudo service activemq start<br>INFO: Loading ‘/etc/default/activemq’<br>INFO: Using java ‘/usr/bin/java’<br>INFO: Starting - inspect logfiles specified in logging.properties and log4j.properties to get details<br>INFO: changing to user ‘activemq’ to invoke java<br>INFO: pidfile created : ‘/opt/activemq/data/activemq.pid’ (pid ‘3877’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 验证</div><div class="line"></div><div class="line">	- AcitveMQ 默认的端口号是 `61616` 使用 `netstat` 命令查看 ActiveMQ 是否监听该端口</div></pre></td></tr></table></figure></p>
-<pre><code>vagrant@ubuntu:~$ sudo netstat -naptu | grep 61616
-tcp6       0      0 :::61616                :::*                    LISTEN      3540/java
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- ActiveMQ 在 `81616` 上运行 WEB 控制台</div></pre></td></tr></table></figure>
-
- vagrant@ubuntu:~$ sudo netstat -naptu | grep 8161
-</code></pre><p>tcp6       0      0 :::8161                 :::*                    LISTEN      3540/java<br>     ```</p>
-<pre><code>- 可以使用 `http://ip:8161` 访问 ActiveMQ 的控制台，其中 ip 为 ActiveMQ 所在的 ip 地址。
-</code></pre><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://hostpresto.com/community/tutorials/how-to-install-apache-activemq-on-ubuntu-14-04/" target="_blank" rel="external">How to Install Apache ActiveMQ on Ubuntu 14.04</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo cp bin/activemq /etc/init.d</div><div class="line">vagrant@ubuntu:~$ sudo chown root:root /etc/init.d/activemq</div></pre></td></tr></table></figure>
+<h4 id="启动-ActiveMQ"><a href="#启动-ActiveMQ" class="headerlink" title="启动 ActiveMQ"></a>启动 ActiveMQ</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo service activemq start</div><div class="line">INFO: Loading &apos;/etc/default/activemq&apos;</div><div class="line">INFO: Using java &apos;/usr/bin/java&apos;</div><div class="line">INFO: Starting - inspect logfiles specified in logging.properties and log4j.properties to get details</div><div class="line">INFO: changing to user &apos;activemq&apos; to invoke java</div><div class="line">INFO: pidfile created : &apos;/opt/activemq/data/activemq.pid&apos; (pid &apos;3877&apos;)</div></pre></td></tr></table></figure>
+<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><ul>
+<li>AcitveMQ 默认的端口号是 <code>61616</code> 使用 <code>netstat</code> 命令查看 ActiveMQ 是否监听该端口</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo netstat -naptu | grep 61616</div><div class="line">tcp6       0      0 :::61616                :::*                    LISTEN      3540/java</div></pre></td></tr></table></figure>
+<ul>
+<li>ActiveMQ 在 <code>81616</code> 上运行 WEB 控制台</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vagrant@ubuntu:~$ sudo netstat -naptu | grep 8161</div><div class="line">tcp6       0      0 :::8161                 :::*                    LISTEN      3540/java</div></pre></td></tr></table></figure>
+<ul>
+<li>可以使用 <code>http://ip:8161</code> 访问 ActiveMQ 的控制台，其中 ip 为 ActiveMQ 所在的 ip 地址。</li>
+</ul>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://hostpresto.com/community/tutorials/how-to-install-apache-activemq-on-ubuntu-14-04/" target="_blank" rel="external">How to Install Apache ActiveMQ on Ubuntu 14.04</a></p>
 
           
         
